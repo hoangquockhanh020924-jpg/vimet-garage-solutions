@@ -111,26 +111,20 @@ export function Header() {
         </div>
       </div>
 
-      {/* Nav — solid red bar */}
+      {/* Nav — solid red bar, white text */}
       <nav className="hidden lg:block bg-primary">
         <div className="container-prose">
-          <ul className="flex items-center">
-            {navItems.map((item, i) => (
-              <li key={item.label} className="relative">
+          <ul className="flex items-center gap-1">
+            {navItems.map((item) => (
+              <li key={item.label}>
                 <Link
                   to={item.to}
                   hash={item.hash}
-                  className={`relative inline-block px-5 py-3.5 text-sm font-bold uppercase tracking-wide transition-colors ${
-                    i === 0
-                      ? "bg-primary-dark text-white"
-                      : "text-white/90 hover:bg-primary-dark hover:text-white"
-                  }`}
+                  className="relative inline-block px-5 py-3 text-sm font-semibold text-white transition-colors hover:text-white/80"
+                  activeProps={{ className: "text-white" }}
                 >
                   {item.label}
                 </Link>
-                {i < navItems.length - 1 && (
-                  <span className="absolute right-0 top-1/2 h-4 w-px -translate-y-1/2 bg-white/20" />
-                )}
               </li>
             ))}
           </ul>
