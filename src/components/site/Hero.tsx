@@ -1,5 +1,7 @@
 import { ArrowRight, PhoneCall, ShieldCheck, Wrench, Truck } from "lucide-react";
-import heroImg from "@/assets/hero-garage.jpg";
+import { images } from "@/lib/images";
+
+const heroImg = images.hero.garage;
 
 export function Hero() {
   return (
