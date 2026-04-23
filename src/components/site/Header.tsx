@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Search, ShoppingCart, Phone, Menu, X, Mail, MapPin, Facebook, Youtube } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { images } from "@/lib/images";
 
 const navItems = [
   { label: "Trang chủ", to: "/" as const, hash: "top" },
@@ -50,12 +51,13 @@ export function Header() {
       <div className="bg-white border-b-2 border-primary/10">
         <div className="container-prose flex items-center gap-4 py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0">
-            <div className="relative flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-dark text-white font-display font-bold text-xl shadow-[0_4px_12px_-2px_rgba(207,46,46,0.4)]">
-              V
-              <span className="absolute -bottom-1 -right-1 h-2.5 w-2.5 rounded-sm bg-secondary border-2 border-white" />
-            </div>
-            <div className="leading-tight">
+          <Link to="/" className="flex items-center gap-3 shrink-0 group">
+            <img
+              src={images.brand.logo}
+              alt="Logo Vimet — Công ty Cổ phần Vimet"
+              className="h-12 w-12 md:h-14 md:w-14 object-contain transition-transform group-hover:scale-105"
+            />
+            <div className="leading-tight hidden sm:block">
               <div className="font-display text-xl font-bold tracking-tight text-primary">VIMET</div>
               <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Auto Equipment JSC
@@ -111,7 +113,7 @@ export function Header() {
         </div>
       </div>
 
-      {/* Nav — solid red bar, white text */}
+      {/* Nav — solid red bar, white text with animated underline on hover */}
       <nav className="hidden lg:block bg-primary">
         <div className="container-prose">
           <ul className="flex items-center gap-1">
@@ -120,10 +122,13 @@ export function Header() {
                 <Link
                   to={item.to}
                   hash={item.hash}
-                  className="relative inline-block px-5 py-3 text-sm font-semibold text-white transition-colors hover:text-white/80"
-                  activeProps={{ className: "text-white" }}
+                  className="group relative inline-block px-5 py-3.5 text-sm font-semibold text-white transition-colors"
                 >
-                  {item.label}
+                  <span className="relative">
+                    {item.label}
+                    {/* Animated underline */}
+                    <span className="pointer-events-none absolute -bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-white transition-all duration-300 ease-out group-hover:w-full" />
+                  </span>
                 </Link>
               </li>
             ))}

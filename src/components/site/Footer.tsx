@@ -1,13 +1,14 @@
 import { Facebook, Youtube, Linkedin, MapPin, Phone, Mail } from "lucide-react";
+import { images } from "@/lib/images";
 
 export function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground">
       <div className="container-prose grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-md bg-primary font-display text-lg font-bold text-primary-foreground">
-              V
+          <div className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white p-1.5">
+              <img src={images.brand.logo} alt="Logo Vimet" className="h-full w-full object-contain" />
             </div>
             <div>
               <div className="font-display text-xl font-bold">VIMET</div>
