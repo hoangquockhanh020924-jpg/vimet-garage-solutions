@@ -1,118 +1,136 @@
 import { useState } from "react";
-import { Search, ShoppingCart, Phone, Menu, X } from "lucide-react";
+import { Search, ShoppingCart, Phone, Menu, X, Mail, MapPin, Facebook, Youtube } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 
 const navItems = [
-  { label: "Trang chủ", href: "#top" },
-  { label: "Giới thiệu", href: "#about" },
-  { label: "Sản phẩm", href: "#products" },
-  { label: "Hãng sản xuất", href: "#brands" },
-  { label: "Tin tức", href: "#news" },
-  { label: "Tuyển dụng", href: "#recruit" },
-  { label: "Catalog", href: "#catalog" },
-  { label: "Video", href: "#video" },
-  { label: "Liên hệ", href: "#contact" },
+  { label: "Trang chủ", to: "/" as const, hash: "top" },
+  { label: "Giới thiệu", to: "/" as const, hash: "about" },
+  { label: "Sản phẩm", to: "/" as const, hash: "products" },
+  { label: "Hãng sản xuất", to: "/" as const, hash: "brands" },
+  { label: "Tin tức", to: "/" as const, hash: "news" },
+  { label: "Tuyển dụng", to: "/" as const, hash: "recruit" },
+  { label: "Catalog", to: "/" as const, hash: "catalog" },
+  { label: "Video", to: "/" as const, hash: "video" },
+  { label: "Liên hệ", to: "/" as const, hash: "contact" },
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b border-border">
-      {/* Top strip */}
-      <div className="hidden md:block bg-secondary text-secondary-foreground text-xs">
+    <header className="sticky top-0 z-50 w-full shadow-[0_2px_12px_-4px_rgba(207,46,46,0.25)]">
+      {/* Top utility strip — deep red */}
+      <div className="hidden md:block bg-primary-dark text-white text-xs">
         <div className="container-prose flex items-center justify-between py-2">
-          <span className="text-white/70">
-            Vimet JSC — Thiết bị kỹ thuật ô tô chính hãng · Bảo hành toàn quốc
-          </span>
-          <div className="flex items-center gap-5 text-white/80">
-            <a href="mailto:sales@vimet.vn" className="hover:text-white transition-colors">sales@vimet.vn</a>
-            <span className="h-3 w-px bg-white/20" />
-            <a href="#catalog" className="hover:text-white transition-colors">Tải Catalog</a>
-            <span className="h-3 w-px bg-white/20" />
-            <a href="#recruit" className="hover:text-white transition-colors">Tuyển dụng</a>
+          <div className="flex items-center gap-5">
+            <span className="inline-flex items-center gap-1.5">
+              <MapPin className="h-3 w-3" />
+              123 Nguyễn Văn Cừ, Long Biên, Hà Nội
+            </span>
+            <span className="h-3 w-px bg-white/25" />
+            <a href="mailto:sales@vimet.vn" className="inline-flex items-center gap-1.5 hover:text-white/80 transition-colors">
+              <Mail className="h-3 w-3" />
+              sales@vimet.vn
+            </a>
           </div>
-        </div>
-      </div>
-
-      {/* Main bar */}
-      <div className="container-prose flex items-center gap-4 py-4">
-        {/* Logo */}
-        <a href="#top" className="flex items-center gap-2 shrink-0">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-md bg-primary text-primary-foreground font-display font-bold text-lg shadow-sm">
-            V
-            <span className="absolute -bottom-1 -right-1 h-2 w-2 rounded-sm bg-secondary" />
-          </div>
-          <div className="leading-tight">
-            <div className="font-display text-xl font-bold tracking-tight text-secondary">VIMET</div>
-            <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
-              Auto Equipment JSC
+          <div className="flex items-center gap-4">
+            <a href="#catalog" className="hover:text-white/80 transition-colors">Tải Catalog</a>
+            <span className="h-3 w-px bg-white/25" />
+            <a href="#recruit" className="hover:text-white/80 transition-colors">Tuyển dụng</a>
+            <span className="h-3 w-px bg-white/25" />
+            <div className="flex items-center gap-2">
+              <a href="#" aria-label="Facebook" className="hover:text-white/80"><Facebook className="h-3.5 w-3.5" /></a>
+              <a href="#" aria-label="Youtube" className="hover:text-white/80"><Youtube className="h-3.5 w-3.5" /></a>
             </div>
           </div>
-        </a>
-
-        {/* Search */}
-        <div className="hidden lg:flex flex-1 max-w-xl mx-4">
-          <div className="group relative w-full">
-            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-            <input
-              type="search"
-              placeholder="Tìm cầu nâng, máy chẩn đoán, máy ra vào lốp..."
-              className="w-full rounded-full border border-border bg-muted pl-10 pr-4 py-2.5 text-sm placeholder:text-muted-foreground focus:border-primary focus:bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 transition"
-            />
-          </div>
         </div>
-
-        {/* Hotline */}
-        <a
-          href="tel:19001234"
-          className="hidden md:flex items-center gap-3 rounded-full border border-primary/20 bg-primary/5 pl-2 pr-4 py-1.5 hover:bg-primary/10 transition-colors"
-        >
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground">
-            <Phone className="h-4 w-4" />
-          </span>
-          <span className="leading-tight">
-            <span className="block text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Hotline</span>
-            <span className="block text-sm font-bold text-primary">1900 1234</span>
-          </span>
-        </a>
-
-        {/* Cart */}
-        <button className="relative flex h-10 w-10 items-center justify-center rounded-full border border-border hover:border-primary hover:text-primary transition-colors">
-          <ShoppingCart className="h-4 w-4" />
-          <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-primary-foreground">
-            0
-          </span>
-        </button>
-
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen((o) => !o)}
-          className="lg:hidden flex h-10 w-10 items-center justify-center rounded-md border border-border"
-          aria-label="Menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
       </div>
 
-      {/* Nav */}
-      <nav className="hidden lg:block border-t border-border bg-white">
+      {/* Main bar — white */}
+      <div className="bg-white border-b-2 border-primary/10">
+        <div className="container-prose flex items-center gap-4 py-4">
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-2.5 shrink-0">
+            <div className="relative flex h-11 w-11 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-primary-dark text-white font-display font-bold text-xl shadow-[0_4px_12px_-2px_rgba(207,46,46,0.4)]">
+              V
+              <span className="absolute -bottom-1 -right-1 h-2.5 w-2.5 rounded-sm bg-secondary border-2 border-white" />
+            </div>
+            <div className="leading-tight">
+              <div className="font-display text-xl font-bold tracking-tight text-primary">VIMET</div>
+              <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Auto Equipment JSC
+              </div>
+            </div>
+          </Link>
+
+          {/* Search */}
+          <div className="hidden lg:flex flex-1 max-w-xl mx-4">
+            <div className="group relative w-full">
+              <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
+              <input
+                type="search"
+                placeholder="Tìm cầu nâng, máy chẩn đoán, máy ra vào lốp..."
+                className="w-full rounded-full border-2 border-primary/20 bg-white pl-11 pr-28 py-2.5 text-sm placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15 transition"
+              />
+              <button className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-full bg-primary px-5 py-1.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-primary-dark transition-colors">
+                Tìm
+              </button>
+            </div>
+          </div>
+
+          {/* Hotline */}
+          <a
+            href="tel:19001234"
+            className="hidden md:flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-primary-dark pl-2 pr-5 py-1.5 shadow-[0_4px_12px_-2px_rgba(207,46,46,0.4)] hover:shadow-[0_6px_18px_-2px_rgba(207,46,46,0.5)] transition-shadow"
+          >
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-primary">
+              <Phone className="h-4 w-4" />
+            </span>
+            <span className="leading-tight text-white">
+              <span className="block text-[10px] font-semibold uppercase tracking-wider opacity-90">Hotline 24/7</span>
+              <span className="block text-sm font-bold">1900 1234</span>
+            </span>
+          </a>
+
+          {/* Cart */}
+          <button className="relative flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors">
+            <ShoppingCart className="h-4 w-4" />
+            <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary px-1 text-[10px] font-bold text-white border-2 border-white">
+              0
+            </span>
+          </button>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setOpen((o) => !o)}
+            className="lg:hidden flex h-11 w-11 items-center justify-center rounded-md bg-primary text-white"
+            aria-label="Menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Nav — solid red bar */}
+      <nav className="hidden lg:block bg-primary">
         <div className="container-prose">
-          <ul className="flex items-center gap-1">
+          <ul className="flex items-center">
             {navItems.map((item, i) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  className={`relative inline-block px-4 py-3 text-sm font-semibold transition-colors ${
+              <li key={item.label} className="relative">
+                <Link
+                  to={item.to}
+                  hash={item.hash}
+                  className={`relative inline-block px-5 py-3.5 text-sm font-bold uppercase tracking-wide transition-colors ${
                     i === 0
-                      ? "text-primary"
-                      : "text-secondary hover:text-primary"
+                      ? "bg-primary-dark text-white"
+                      : "text-white/90 hover:bg-primary-dark hover:text-white"
                   }`}
                 >
                   {item.label}
-                  {i === 0 && (
-                    <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary" />
-                  )}
-                </a>
+                </Link>
+                {i < navItems.length - 1 && (
+                  <span className="absolute right-0 top-1/2 h-4 w-px -translate-y-1/2 bg-white/20" />
+                )}
               </li>
             ))}
           </ul>
@@ -121,26 +139,27 @@ export function Header() {
 
       {/* Mobile nav */}
       {open && (
-        <div className="lg:hidden border-t border-border bg-white">
+        <div className="lg:hidden border-t border-primary/20 bg-white">
           <div className="container-prose py-3">
             <div className="relative mb-3">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
               <input
                 type="search"
                 placeholder="Tìm sản phẩm..."
-                className="w-full rounded-full border border-border bg-muted pl-10 pr-4 py-2.5 text-sm"
+                className="w-full rounded-full border-2 border-primary/20 bg-white pl-10 pr-4 py-2.5 text-sm focus:border-primary focus:outline-none"
               />
             </div>
-            <ul className="flex flex-col">
+            <ul className="flex flex-col divide-y divide-border">
               {navItems.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.to}
+                    hash={item.hash}
                     onClick={() => setOpen(false)}
-                    className="block py-2.5 text-sm font-medium text-secondary hover:text-primary"
+                    className="block py-3 text-sm font-semibold text-secondary hover:text-primary"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
