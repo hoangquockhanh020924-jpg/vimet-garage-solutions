@@ -63,21 +63,23 @@ export function Categories() {
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
   };
 
-  // Auto-scroll left → right with seamless loop
+  // Auto-scroll left → right with seamless infinite loop (list is duplicated below)
   useEffect(() => {
     const el = scrollRef.current;
     if (!el || isPaused) return;
 
     const interval = setInterval(() => {
       if (!el) return;
-      const maxScroll = el.scrollWidth - el.clientWidth;
-      // If near the end, jump back to start; otherwise advance smoothly
-      if (el.scrollLeft >= maxScroll - 4) {
-        el.scrollTo({ left: 0, behavior: "smooth" });
+      // Half of total width = end of the first (original) set
+      const halfWidth = el.scrollWidth / 2;
+      // When we've scrolled past the first set, jump back by exactly halfWidth.
+      // Because the second set is identical, the jump is visually invisible.
+      if (el.scrollLeft >= halfWidth) {
+        el.scrollLeft = el.scrollLeft - halfWidth;
       } else {
-        el.scrollBy({ left: 1, behavior: "auto" });
+        el.scrollLeft = el.scrollLeft + 0.5;
       }
-    }, 20);
+    }, 16);
 
     return () => clearInterval(interval);
   }, [isPaused]);
@@ -140,13 +142,13 @@ export function Categories() {
 
           <div
             ref={scrollRef}
-            className="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory px-4 md:px-0 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-5 overflow-x-auto px-4 md:px-0 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
-            {categories.map((c) => (
+            {[...categories, ...categories].map((c, idx) => (
               <a
-                key={c.title}
+                key={`${c.title}-${idx}`}
                 href="#products"
-                className="group relative flex-none w-[260px] sm:w-[280px] snap-start overflow-hidden rounded-2xl border border-border bg-white transition-all hover:border-primary hover:-translate-y-1.5 hover:shadow-[var(--shadow-elevated)]"
+                className="group relative flex-none w-[260px] sm:w-[280px] overflow-hidden rounded-2xl border border-border bg-white transition-all hover:border-primary hover:-translate-y-1.5 hover:shadow-[var(--shadow-elevated)]"
               >
                 {/* Image */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-neutral">
