@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 const categories = [
@@ -54,6 +54,7 @@ const categories = [
 
 export function Categories() {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   const scroll = (dir: "left" | "right") => {
     const el = scrollRef.current;
@@ -61,6 +62,25 @@ export function Categories() {
     const amount = el.clientWidth * 0.85;
     el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
   };
+
+  // Auto-scroll left → right with seamless loop
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || isPaused) return;
+
+    const interval = setInterval(() => {
+      if (!el) return;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      // If near the end, jump back to start; otherwise advance smoothly
+      if (el.scrollLeft >= maxScroll - 4) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: 1, behavior: "auto" });
+      }
+    }, 20);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   return (
     <section id="products" className="bg-neutral py-20">
