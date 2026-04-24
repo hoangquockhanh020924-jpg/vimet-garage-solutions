@@ -117,7 +117,27 @@ export function Categories() {
           </div>
         </div>
 
-        <div className="relative -mx-4 md:mx-0">
+        <div
+          className="relative -mx-4 md:mx-0"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          {/* Left arrow - overlay */}
+          <button
+            onClick={() => scroll("left")}
+            aria-label="Cuộn trái"
+            className="absolute left-2 md:-left-5 top-1/2 -translate-y-1/2 z-10 hidden sm:flex h-12 w-12 items-center justify-center rounded-full border border-border bg-white text-secondary transition-all hover:border-primary hover:bg-primary hover:text-white shadow-[var(--shadow-elevated)]"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            onClick={() => scroll("right")}
+            aria-label="Cuộn phải"
+            className="absolute right-2 md:-right-5 top-1/2 -translate-y-1/2 z-10 hidden sm:flex h-12 w-12 items-center justify-center rounded-full border border-border bg-white text-secondary transition-all hover:border-primary hover:bg-primary hover:text-white shadow-[var(--shadow-elevated)]"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+
           <div
             ref={scrollRef}
             className="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory px-4 md:px-0 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
