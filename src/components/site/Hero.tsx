@@ -1,9 +1,28 @@
-import { ArrowRight, PhoneCall, ShieldCheck, Wrench, Truck } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ArrowRight, ChevronLeft, ChevronRight, PhoneCall, ShieldCheck, Wrench, Truck } from "lucide-react";
 import { images } from "@/lib/images";
 
-const heroImg = images.hero.garage;
+const heroSlides = [
+  { src: images.hero.slides[0], alt: "Xưởng gara ô tô với cầu nâng và thiết bị chẩn đoán Vimet" },
+  { src: images.hero.slides[1], alt: "Cầu nâng 2 trụ Vimet chính hãng tại xưởng dịch vụ" },
+  { src: images.hero.slides[2], alt: "Thiết bị chẩn đoán và cầu nâng 4 trụ cho gara chuyên nghiệp" },
+];
 
 export function Hero() {
+  const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const total = heroSlides.length;
+
+  const goTo = (i: number) => setCurrent((i + total) % total);
+  const prev = () => goTo(current - 1);
+  const next = () => goTo(current + 1);
+
+  useEffect(() => {
+    if (isPaused) return;
+    const id = setInterval(() => setCurrent((c) => (c + 1) % total), 5000);
+    return () => clearInterval(id);
+  }, [isPaused, total]);
+
   return (
     <section id="top" className="relative overflow-hidden bg-white">
       {/* Decorative stripe */}
@@ -64,15 +83,58 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Image */}
-        <div className="lg:col-span-6 relative">
-          <div className="relative aspect-[5/4] overflow-hidden rounded-2xl shadow-[var(--shadow-elevated)]">
-            <img
-              src={heroImg}
-              alt="Xưởng gara ô tô với cầu nâng và thiết bị chẩn đoán Vimet"
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-transparent" />
+        {/* Image carousel */}
+        <div
+          className="lg:col-span-6 relative"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="relative aspect-[5/4] overflow-hidden rounded-2xl shadow-[var(--shadow-elevated)] bg-neutral">
+            {heroSlides.map((slide, i) => (
+              <img
+                key={slide.src}
+                src={slide.src}
+                alt={slide.alt}
+                loading={i === 0 ? "eager" : "lazy"}
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+                  i === current ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
+            <div className="absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-transparent pointer-events-none" />
+
+            {/* Prev / Next buttons */}
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Ảnh trước"
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur text-secondary shadow-md transition-all hover:bg-primary hover:text-white hover:scale-110"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Ảnh kế tiếp"
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur text-secondary shadow-md transition-all hover:bg-primary hover:text-white hover:scale-110"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+
+            {/* Dots */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
+              {heroSlides.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-label={`Chuyển đến ảnh ${i + 1}`}
+                  className={`h-2 rounded-full transition-all ${
+                    i === current ? "w-6 bg-primary" : "w-2 bg-white/80 hover:bg-white"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Floating stat */}
