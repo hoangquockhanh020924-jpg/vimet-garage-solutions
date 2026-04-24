@@ -54,6 +54,10 @@
   --ink: oklch(0.18 0.005 270);             /* #1A1A1A */
   --neutral: oklch(0.98 0.002 90);          /* #F8F9FA */
 
+  /* Yellow accent — used for hover highlights only */
+  --highlight: oklch(0.86 0.18 92);         /* warm amber/yellow */
+  --highlight-foreground: oklch(0.18 0.005 270);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.18 0.005 270);
 
