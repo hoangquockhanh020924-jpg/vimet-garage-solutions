@@ -25,6 +25,8 @@ import logoVimet from "@/assets/images/brand/logo-vimet.png";
 
 // ─── Hero / Banners ─────────────────────────────────────────────────────
 import heroGarage from "@/assets/images/hero/hero-garage.jpg";
+import heroGarage2 from "@/assets/images/hero/hero-garage-2.jpg";
+import heroGarage3 from "@/assets/images/hero/hero-garage-3.jpg";
 
 export const images = {
   brand: {
@@ -32,5 +34,6 @@ export const images = {
   },
   hero: {
     garage: heroGarage,
+    slides: [heroGarage, heroGarage2, heroGarage3],
   },
 } as const;
