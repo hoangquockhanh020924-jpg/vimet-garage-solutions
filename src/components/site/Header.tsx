@@ -280,7 +280,7 @@ export function Header() {
           {/* Mobile toggle */}
           <button
             onClick={() => setOpen((o) => !o)}
-            className="lg:hidden flex h-11 w-11 items-center justify-center rounded-md bg-primary text-white"
+            className="md:hidden flex h-11 w-11 items-center justify-center rounded-md bg-primary text-white"
             aria-label="Menu"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -289,7 +289,7 @@ export function Header() {
       </div>
 
       {/* Nav — solid red bar with categories mega menu + nav links */}
-      <nav className="hidden lg:block bg-primary relative">
+      <nav className="hidden md:block bg-primary relative">
         <div className="container-prose flex items-stretch">
           {/* All Categories trigger */}
           <div
@@ -298,7 +298,7 @@ export function Header() {
             onMouseLeave={() => setMegaOpen(false)}
           >
             <button
-              className="flex items-center gap-2.5 bg-secondary px-5 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-highlight hover:text-secondary h-full"
+              className="flex items-center gap-2 bg-secondary px-4 py-3 text-[13px] font-bold uppercase tracking-normal text-white transition-colors hover:bg-highlight hover:text-secondary h-full whitespace-nowrap"
               aria-haspopup="true"
               aria-expanded={megaOpen}
             >
@@ -308,7 +308,7 @@ export function Header() {
 
             {/* Mega menu panel */}
             {megaOpen && (
-              <div className="absolute left-0 top-full z-50 w-[920px] rounded-b-lg bg-white shadow-[0_20px_40px_-10px_rgba(15,15,15,0.25)] ring-1 ring-primary/10 grid grid-cols-[260px_1fr] overflow-hidden">
+              <div className="absolute left-0 top-full z-50 w-[860px] max-w-[calc(100vw-2rem)] rounded-b-lg bg-white shadow-[0_20px_40px_-10px_rgba(15,15,15,0.25)] ring-1 ring-primary/10 grid grid-cols-[260px_1fr] overflow-hidden">
                 {/* Left: category list */}
                 <ul className="bg-neutral border-r border-border py-2 max-h-[480px] overflow-y-auto">
                   {categories.map((cat) => {
@@ -382,13 +382,13 @@ export function Header() {
           </div>
 
           {/* Nav links */}
-          <ul className="flex items-center gap-1 pl-2">
+          <ul className="flex items-center gap-0.5 border-l border-white/15">
             {navItems.map((item) => (
               <li key={item.label}>
                 <Link
                   to={item.to}
                   hash={item.hash}
-                  className="group relative inline-block px-5 py-3.5 text-sm font-semibold text-white transition-colors hover:text-highlight"
+                  className="group relative inline-block whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-white transition-colors hover:text-highlight"
                 >
                   <span className="relative">
                     {item.label}
