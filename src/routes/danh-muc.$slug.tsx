@@ -95,9 +95,6 @@ const SORT_OPTIONS = [
   { id: "rating", label: "Đánh giá cao" },
 ] as const;
 
-function parsePrice(s: string): number {
-  return parseInt(s.replace(/[^\d]/g, ""), 10) || 0;
-}
 
 function CategoryDetailPage() {
   const { cat, items } = Route.useLoaderData();
