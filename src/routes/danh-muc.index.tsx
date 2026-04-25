@@ -333,6 +333,7 @@ function AllProductsPage() {
 
 function ProductGridCard({ p }: { p: Product }) {
   const catSlug = productCategoryToSlug[p.category];
+  const { addItem } = useCart();
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-white transition-all hover:border-primary/40 hover:shadow-[var(--shadow-elevated)]">
       <Link
