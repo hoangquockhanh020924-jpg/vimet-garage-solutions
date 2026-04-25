@@ -61,7 +61,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-md border-2 border-secondary bg-white px-6 py-3.5 text-sm font-semibold text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors"
             >
               <PhoneCall className="h-4 w-4" />
-              Liên hệ báo giá
+              Nhận tư vấn & báo giá
             </a>
           </div>
 

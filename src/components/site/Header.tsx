@@ -194,7 +194,7 @@ export function Header() {
           <div className="flex items-center gap-5">
             <span className="inline-flex items-center gap-1.5">
               <MapPin className="h-3 w-3" />
-              123 Nguyễn Văn Cừ, Long Biên, Hà Nội
+              H64 Dương Thị Giang, Phường Đông Hưng Thuận, TP.Hồ Chí Minh
             </span>
             <span className="h-3 w-px bg-white/25" />
             <a
@@ -202,7 +202,7 @@ export function Header() {
               className="inline-flex items-center gap-1.5 transition-colors hover:text-highlight"
             >
               <Mail className="h-3 w-3" />
-              sales@vimet.vn
+              info@vimet.com.vn
             </a>
           </div>
           <div className="flex items-center gap-4">
@@ -233,9 +233,9 @@ export function Header() {
               className="h-12 w-12 md:h-14 md:w-14 object-contain transition-transform group-hover:scale-105"
             />
             <div className="leading-tight hidden sm:block">
-              <div className="font-display text-xl font-bold tracking-tight text-primary">VIMET</div>
+              <div className="font-display text-xl font-bold tracking-tight text-primary">VIMET CROP</div>
               <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Auto Equipment JSC
+                Công ty Cổ phần kỹ thuật thiết bị Việt Mỹ
               </div>
             </div>
           </Link>
@@ -265,7 +265,7 @@ export function Header() {
             </span>
             <span className="leading-tight text-white">
               <span className="block text-[10px] font-semibold uppercase tracking-wider opacity-90">Hotline 24/7</span>
-              <span className="block text-sm font-bold">1900 1234</span>
+              <span className="block text-sm font-bold">028 388 88 388</span>
             </span>
           </a>
 
@@ -303,7 +303,7 @@ export function Header() {
               aria-expanded={megaOpen}
             >
               <LayoutGrid className="h-4 w-4" />
-              Danh mục sản phẩm
+              Sản phẩm bán chạy
             </button>
 
             {/* Mega menu panel */}

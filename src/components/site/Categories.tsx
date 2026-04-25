@@ -101,22 +101,13 @@ export function Categories() {
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => scroll("left")}
-              aria-label="Cuộn trái"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white text-secondary transition-all hover:border-primary hover:bg-primary hover:text-white hover:shadow-[var(--shadow-elevated)]"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              aria-label="Cuộn phải"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-white text-secondary transition-all hover:border-primary hover:bg-primary hover:text-white hover:shadow-[var(--shadow-elevated)]"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-          </div>
+          <a
+            href="#products"
+            className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
+          >
+            Xem toàn bộ danh mục
+            <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
 
         <div
