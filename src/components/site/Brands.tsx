@@ -1,3 +1,4 @@
+import anestIwataLogo from "@/assets/images/brands/anest-iwata.jpg";
 import bendpakLogo from "@/assets/images/brands/bendpak.jpg";
 import betaLogo from "@/assets/images/brands/beta.jpg";
 import fasepLogo from "@/assets/images/brands/fasep.jpg";
@@ -5,15 +6,20 @@ import gesipaLogo from "@/assets/images/brands/gesipa.jpg";
 import gisLogo from "@/assets/images/brands/gis.jpg";
 import gysLogo from "@/assets/images/brands/gys.jpg";
 import hazetLogo from "@/assets/images/brands/HAZET-1.jpg";
+import heshbonLogo from "@/assets/images/brands/heshbon.jpg";
 import hidiLogo from "@/assets/images/brands/HIDI-NEW-1.jpg";
 import koengLogo from "@/assets/images/brands/koeng.jpg";
+import lavorLogo from "@/assets/images/brands/lavor.jpg";
 import nittoLogo from "@/assets/images/brands/nitto.jpg";
+import powerramLogo from "@/assets/images/brands/powerram.jpg";
 import raasmLogo from "@/assets/images/brands/raasm.jpg";
 import sefacLogo from "@/assets/images/brands/sefac.jpg";
+import technoluxLogo from "@/assets/images/brands/technolux.jpg";
 import toptulLogo from "@/assets/images/brands/TOPTUL-TAIWAN-1.jpg";
 import yashimaLogo from "@/assets/images/brands/yashima.jpg";
 
 const brands = [
+  { name: "Anest Iwata", logo: anestIwataLogo },
   { name: "BendPak", logo: bendpakLogo },
   { name: "GESIPA", logo: gesipaLogo },
   { name: "FASEP", logo: fasepLogo },
@@ -21,11 +27,15 @@ const brands = [
   { name: "GYS", logo: gysLogo },
   { name: "GIS", logo: gisLogo },
   { name: "Hazet", logo: hazetLogo },
+  { name: "Heshbon", logo: heshbonLogo },
   { name: "HIDI", logo: hidiLogo },
   { name: "Koeng", logo: koengLogo },
+  { name: "Lavor", logo: lavorLogo },
   { name: "Nitto Kohki", logo: nittoLogo },
+  { name: "Powerram", logo: powerramLogo },
   { name: "Sefac", logo: sefacLogo },
   { name: "RAASM", logo: raasmLogo },
+  { name: "Technolux", logo: technoluxLogo },
   { name: "TOPTUL", logo: toptulLogo },
   { name: "Yashima", logo: yashimaLogo },
 ];
