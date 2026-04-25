@@ -10,11 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DanhMucIndexRouteImport } from './routes/danh-muc.index'
 import { Route as SanPhamSlugRouteImport } from './routes/san-pham.$slug'
+import { Route as DanhMucSlugRouteImport } from './routes/danh-muc.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DanhMucIndexRoute = DanhMucIndexRouteImport.update({
+  id: '/danh-muc/',
+  path: '/danh-muc/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SanPhamSlugRoute = SanPhamSlugRouteImport.update({
@@ -22,31 +29,44 @@ const SanPhamSlugRoute = SanPhamSlugRouteImport.update({
   path: '/san-pham/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DanhMucSlugRoute = DanhMucSlugRouteImport.update({
+  id: '/danh-muc/$slug',
+  path: '/danh-muc/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
+  '/danh-muc/': typeof DanhMucIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
+  '/danh-muc': typeof DanhMucIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
+  '/danh-muc/': typeof DanhMucIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/san-pham/$slug'
+  fullPaths: '/' | '/danh-muc/$slug' | '/san-pham/$slug' | '/danh-muc/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/san-pham/$slug'
-  id: '__root__' | '/' | '/san-pham/$slug'
+  to: '/' | '/danh-muc/$slug' | '/san-pham/$slug' | '/danh-muc'
+  id: '__root__' | '/' | '/danh-muc/$slug' | '/san-pham/$slug' | '/danh-muc/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DanhMucSlugRoute: typeof DanhMucSlugRoute
   SanPhamSlugRoute: typeof SanPhamSlugRoute
+  DanhMucIndexRoute: typeof DanhMucIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +78,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/danh-muc/': {
+      id: '/danh-muc/'
+      path: '/danh-muc'
+      fullPath: '/danh-muc/'
+      preLoaderRoute: typeof DanhMucIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/san-pham/$slug': {
       id: '/san-pham/$slug'
       path: '/san-pham/$slug'
@@ -65,12 +92,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SanPhamSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/danh-muc/$slug': {
+      id: '/danh-muc/$slug'
+      path: '/danh-muc/$slug'
+      fullPath: '/danh-muc/$slug'
+      preLoaderRoute: typeof DanhMucSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DanhMucSlugRoute: DanhMucSlugRoute,
   SanPhamSlugRoute: SanPhamSlugRoute,
+  DanhMucIndexRoute: DanhMucIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
