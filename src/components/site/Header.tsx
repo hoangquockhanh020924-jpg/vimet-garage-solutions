@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { images } from "@/lib/images";
+import { useCart } from "@/lib/cart";
 
 const navItems = [
   { label: "Trang chủ", to: "/" as const, hash: "top" },
@@ -183,6 +184,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [activeCat, setActiveCat] = useState<string>(categories[0].label);
   const [megaOpen, setMegaOpen] = useState(false);
+  const { count } = useCart();
 
   const activeCategory = categories.find((c) => c.label === activeCat) ?? categories[0];
 
@@ -270,12 +272,16 @@ export function Header() {
           </a>
 
           {/* Cart */}
-          <button className="relative flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-highlight hover:text-secondary">
+          <Link
+            to="/gio-hang"
+            aria-label="Giỏ hàng"
+            className="relative flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-highlight hover:text-secondary"
+          >
             <ShoppingCart className="h-4 w-4" />
             <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary px-1 text-[10px] font-bold text-white border-2 border-white">
-              0
+              {count}
             </span>
-          </button>
+          </Link>
 
           {/* Mobile toggle */}
           <button
