@@ -135,7 +135,7 @@ export function Categories() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
