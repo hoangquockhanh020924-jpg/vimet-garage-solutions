@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   ChevronRight,
@@ -29,7 +29,6 @@ type PaymentMethod = "cod" | "transfer" | "card";
 
 function CheckoutPage() {
   const { items, subtotal, clear } = useCart();
-  const navigate = useNavigate();
 
   const [form, setForm] = useState({
     name: "",
