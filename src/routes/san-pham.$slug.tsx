@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   ShoppingCart,
@@ -21,6 +21,7 @@ import {
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { getProductBySlug, getRelatedProducts, type Product } from "@/data/products";
+import { useCart, parsePrice } from "@/lib/cart";
 
 export const Route = createFileRoute("/san-pham/$slug")({
   loader: ({ params }) => {
@@ -77,6 +78,27 @@ function ProductDetailPage() {
   const [activeImg, setActiveImg] = useState(0);
   const [qty, setQty] = useState(1);
   const [tab, setTab] = useState<"specs" | "accessories" | "warranty" | "reviews">("specs");
+  const { addItem } = useCart();
+  const navigate = useNavigate();
+
+  const handleAdd = () => {
+    addItem(
+      {
+        slug: product.slug,
+        name: product.name,
+        code: product.code,
+        img: product.img,
+        price: parsePrice(product.price),
+        priceLabel: product.price,
+      },
+      qty,
+    );
+  };
+
+  const handleBuyNow = () => {
+    handleAdd();
+    navigate({ to: "/thanh-toan" });
+  };
 
   return (
     <div className="min-h-screen bg-neutral">
@@ -222,11 +244,17 @@ function ProductDetailPage() {
                     <Plus className="h-4 w-4" />
                   </button>
                 </div>
-                <button className="flex-1 min-w-[160px] inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white hover:bg-highlight hover:text-secondary transition-colors shadow-[0_4px_12px_-2px_rgba(207,46,46,0.4)]">
+                <button
+                  onClick={handleBuyNow}
+                  className="flex-1 min-w-[160px] inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white hover:bg-highlight hover:text-secondary transition-colors shadow-[0_4px_12px_-2px_rgba(207,46,46,0.4)]"
+                >
                   <ShoppingCart className="h-4 w-4" />
                   Mua ngay
                 </button>
-                <button className="inline-flex items-center justify-center rounded-md border-2 border-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary hover:bg-primary hover:text-white transition-colors">
+                <button
+                  onClick={handleAdd}
+                  className="inline-flex items-center justify-center rounded-md border-2 border-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-primary hover:bg-primary hover:text-white transition-colors"
+                >
                   Thêm vào giỏ
                 </button>
               </div>

@@ -1,8 +1,10 @@
 import { ShoppingCart, Eye } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { products } from "@/data/products";
+import { useCart, parsePrice } from "@/lib/cart";
 
 export function Products() {
+  const { addItem } = useCart();
   return (
     <section id="products" className="bg-white py-20">
       <div className="container-prose">
@@ -80,7 +82,19 @@ export function Products() {
                 </div>
 
                 <div className="mt-4 flex gap-2">
-                  <button className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-3 py-2.5 text-xs font-semibold text-white hover:bg-highlight hover:text-secondary transition-colors">
+                  <button
+                    onClick={() =>
+                      addItem({
+                        slug: p.slug,
+                        name: p.name,
+                        code: p.code,
+                        img: p.img,
+                        price: parsePrice(p.price),
+                        priceLabel: p.price,
+                      })
+                    }
+                    className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-3 py-2.5 text-xs font-semibold text-white hover:bg-highlight hover:text-secondary transition-colors"
+                  >
                     <ShoppingCart className="h-3.5 w-3.5" />
                     Đặt mua
                   </button>
