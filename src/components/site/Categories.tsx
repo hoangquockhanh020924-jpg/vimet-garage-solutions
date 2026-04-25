@@ -60,13 +60,13 @@ export function Categories() {
             </p>
           </div>
 
-          <a
-            href="#products"
+          <Link
+            to="/danh-muc"
             className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
           >
             Xem toàn bộ danh mục
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         <div
@@ -95,9 +95,10 @@ export function Categories() {
             className="flex gap-5 overflow-x-auto px-4 md:px-0 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {[...categories, ...categories].map((c, idx) => (
-              <a
+              <Link
                 key={`${c.title}-${idx}`}
-                href="#products"
+                to="/danh-muc/$slug"
+                params={{ slug: c.slug }}
                 className="group relative flex-none w-[260px] sm:w-[280px] overflow-hidden rounded-2xl border border-border bg-white transition-all hover:border-primary hover:-translate-y-1.5 hover:shadow-[var(--shadow-elevated)]"
               >
                 {/* Image */}
