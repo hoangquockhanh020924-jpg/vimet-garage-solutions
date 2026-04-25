@@ -27,7 +27,7 @@ import { images } from "@/lib/images";
 const navItems = [
   { label: "Trang chủ", to: "/" as const, hash: "top" },
   { label: "Giới thiệu", to: "/" as const, hash: "about" },
-  { label: "Sản phẩm", to: "/" as const, hash: "products" },
+  { label: "Sản phẩm", to: "/danh-muc" as const },
   { label: "Hãng sản xuất", to: "/" as const, hash: "brands" },
   { label: "Tin tức", to: "/" as const, hash: "news" },
   { label: "Tuyển dụng", to: "/" as const, hash: "recruit" },
