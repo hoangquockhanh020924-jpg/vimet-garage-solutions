@@ -421,6 +421,7 @@ function ProductGridCard({ p }: { p: Product }) {
 }
 
 function ProductListCard({ p }: { p: Product }) {
+  const { addItem } = useCart();
   return (
     <article className="group flex flex-col sm:flex-row gap-5 overflow-hidden rounded-xl border border-border bg-white p-4 transition-all hover:border-primary/40 hover:shadow-[var(--shadow-elevated)]">
       <Link
