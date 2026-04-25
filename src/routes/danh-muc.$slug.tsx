@@ -501,7 +501,10 @@ function ProductGridCard({ p }: { p: Product }) {
             )}
           </div>
           <div className="mt-3 flex gap-2">
-            <button className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-3 py-2.5 text-xs font-semibold text-white hover:bg-highlight hover:text-secondary transition-colors">
+            <button
+              onClick={() => addToCart(p, addItem)}
+              className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-3 py-2.5 text-xs font-semibold text-white hover:bg-highlight hover:text-secondary transition-colors"
+            >
               <ShoppingCart className="h-3.5 w-3.5" />
               Đặt mua
             </button>
@@ -586,7 +589,10 @@ function ProductListCard({ p }: { p: Product }) {
             </div>
           </div>
           <div className="flex gap-2">
-            <button className="inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-white hover:bg-highlight hover:text-secondary transition-colors">
+            <button
+              onClick={() => addToCart(p, addItem)}
+              className="inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-white hover:bg-highlight hover:text-secondary transition-colors"
+            >
               <ShoppingCart className="h-3.5 w-3.5" />
               Đặt mua ngay
             </button>
