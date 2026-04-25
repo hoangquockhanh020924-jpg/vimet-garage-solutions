@@ -128,4 +128,105 @@
       transparent 16px
     );
   }
+
+  .brand-marquee-wrapper {
+    overflow: hidden;
+    position: relative;
+    border-block: 1px solid var(--color-border);
+    background: linear-gradient(180deg, color-mix(in oklab, white 95%, var(--color-neutral)) 0%, white 100%);
+  }
+
+  .brand-marquee-wrapper::before,
+  .brand-marquee-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4rem;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .brand-marquee-wrapper::before {
+    left: 0;
+    background: linear-gradient(90deg, white 0%, transparent 100%);
+  }
+
+  .brand-marquee-wrapper::after {
+    right: 0;
+    background: linear-gradient(270deg, white 0%, transparent 100%);
+  }
+
+  .brand-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: brand-scroll-right 26s linear infinite;
+  }
+
+  .brand-marquee-item {
+    width: clamp(10.5rem, 12.8vw, 13.5rem);
+    height: 6.35rem;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--color-border);
+    padding-inline: 1rem;
+    transition: background-color 200ms ease;
+  }
+
+  .brand-marquee-item:hover {
+    background-color: var(--color-neutral);
+  }
+
+  .brand-marquee-logo {
+    width: 100%;
+    max-width: 10.5rem;
+    max-height: 4.1rem;
+    object-fit: contain;
+    filter: grayscale(0.1);
+    opacity: 0.92;
+    transition: filter 220ms ease, opacity 220ms ease, transform 220ms ease;
+  }
+
+  .brand-marquee-item:hover .brand-marquee-logo {
+    filter: grayscale(0);
+    opacity: 1;
+    transform: scale(1.02);
+  }
+
+  @media (max-width: 640px) {
+    .brand-marquee-item {
+      width: 9.5rem;
+      height: 5.6rem;
+      padding-inline: 0.8rem;
+    }
+
+    .brand-marquee-logo {
+      max-width: 8.8rem;
+      max-height: 3.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .brand-marquee-track {
+      animation: none;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .brand-marquee-item {
+      border-bottom: 1px solid var(--color-border);
+    }
+  }
+}
+
+@keyframes brand-scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
