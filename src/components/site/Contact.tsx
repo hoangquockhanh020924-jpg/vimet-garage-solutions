@@ -78,7 +78,7 @@ export function Contact() {
 
           <button
             type="submit"
-            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-primary-foreground hover:bg-primary-dark transition-colors sm:w-auto"
+            className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-primary-foreground hover:bg-highlight hover:text-secondary transition-colors sm:w-auto"
           >
             {sent ? "Đã gửi yêu cầu ✓" : (<>Gửi yêu cầu <Send className="h-4 w-4" /></>)}
           </button>

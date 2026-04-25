@@ -51,7 +51,7 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#products"
-              className="group inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_6px_20px_-8px_oklch(0.55_0.19_25/0.6)] hover:bg-primary-dark transition-all hover:shadow-[0_10px_28px_-8px_oklch(0.55_0.19_25/0.7)]"
+              className="group inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-[0_6px_20px_-8px_oklch(0.55_0.19_25/0.6)] hover:bg-highlight hover:text-secondary transition-all hover:shadow-[0_10px_28px_-8px_oklch(0.55_0.19_25/0.7)]"
             >
               Xem sản phẩm
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

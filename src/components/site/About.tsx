@@ -37,7 +37,7 @@ export function About() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-dark transition-colors"
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-highlight hover:text-secondary transition-colors"
             >
               Nhận tư vấn miễn phí
             </a>

@@ -222,7 +222,7 @@ function ProductDetailPage() {
                     <Plus className="h-4 w-4" />
                   </button>
                 </div>
-                <button className="flex-1 min-w-[160px] inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white hover:bg-primary-dark transition-colors shadow-[0_4px_12px_-2px_rgba(207,46,46,0.4)]">
+                <button className="flex-1 min-w-[160px] inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white hover:bg-highlight hover:text-secondary transition-colors shadow-[0_4px_12px_-2px_rgba(207,46,46,0.4)]">
                   <ShoppingCart className="h-4 w-4" />
                   Mua ngay
                 </button>
@@ -543,7 +543,7 @@ function ReviewsTab({ product }: { product: Product }) {
             {product.reviewCount} lượt đánh giá · Điểm trung bình {product.rating}.0/5
           </p>
         </div>
-        <button className="self-start md:self-auto inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-bold text-white hover:bg-primary-dark transition-colors">
+        <button className="self-start md:self-auto inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-bold text-white hover:bg-highlight hover:text-secondary transition-colors">
           <Star className="h-4 w-4" />
           Viết đánh giá
         </button>
