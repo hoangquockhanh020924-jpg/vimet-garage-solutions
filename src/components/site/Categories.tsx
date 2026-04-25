@@ -1,56 +1,15 @@
 import { useRef, useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { categoryList } from "@/data/categories";
 
-const categories = [
-  {
-    title: "Cầu nâng ô tô",
-    count: "45+ model",
-    desc: "Cầu nâng 2 trụ, 4 trụ, cắt kéo từ 3.5T đến 7T",
-    img: "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?w=600&q=80",
-  },
-  {
-    title: "Máy chẩn đoán",
-    count: "30+ model",
-    desc: "Máy đọc lỗi đa năng, thiết bị scan OBD chuyên sâu",
-    img: "https://images.unsplash.com/photo-1632823471565-1ecdf5c6d7fc?w=600&q=80",
-  },
-  {
-    title: "Máy ra vào lốp",
-    count: "20+ model",
-    desc: "Máy tháo lắp lốp tự động, cân bằng động chính xác",
-    img: "https://images.unsplash.com/photo-1600880292210-859ad14d3387?w=600&q=80",
-  },
-  {
-    title: "Dụng cụ gara",
-    count: "500+ SP",
-    desc: "Tủ đồ nghề, súng vặn ốc, cờ lê lực tiêu chuẩn",
-    img: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=600&q=80",
-  },
-  {
-    title: "Máy nén khí",
-    count: "35+ model",
-    desc: "Máy nén piston, trục vít công suất 2HP - 50HP",
-    img: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80",
-  },
-  {
-    title: "Phụ tùng & vật tư",
-    count: "1000+ SP",
-    desc: "Dầu nhớt, lọc gió, má phanh chính hãng OEM",
-    img: "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80",
-  },
-  {
-    title: "Thiết bị rửa xe",
-    count: "25+ model",
-    desc: "Máy rửa xe áp lực cao, máy hút bụi chuyên dụng",
-    img: "https://images.unsplash.com/photo-1605164599901-db7f68c4b3a4?w=600&q=80",
-  },
-  {
-    title: "Thiết bị sơn sấy",
-    count: "15+ model",
-    desc: "Phòng sơn, đèn sấy hồng ngoại, súng phun sơn",
-    img: "https://images.unsplash.com/photo-1632823469850-1b7b1e8b7b8e?w=600&q=80",
-  },
-];
+const categories = categoryList.map((c) => ({
+  slug: c.slug,
+  title: c.label,
+  count: `${c.count}+ SP`,
+  desc: c.desc,
+  img: c.img,
+}));
 
 export function Categories() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -101,13 +60,13 @@ export function Categories() {
             </p>
           </div>
 
-          <a
-            href="#products"
+          <Link
+            to="/danh-muc"
             className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
           >
             Xem toàn bộ danh mục
             <ArrowRight className="h-4 w-4" />
-          </a>
+          </Link>
         </div>
 
         <div
@@ -136,9 +95,10 @@ export function Categories() {
             className="flex gap-5 overflow-x-auto px-4 md:px-0 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           >
             {[...categories, ...categories].map((c, idx) => (
-              <a
+              <Link
                 key={`${c.title}-${idx}`}
-                href="#products"
+                to="/danh-muc/$slug"
+                params={{ slug: c.slug }}
                 className="group relative flex-none w-[260px] sm:w-[280px] overflow-hidden rounded-2xl border border-border bg-white transition-all hover:border-primary hover:-translate-y-1.5 hover:shadow-[var(--shadow-elevated)]"
               >
                 {/* Image */}
@@ -175,7 +135,7 @@ export function Categories() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 
