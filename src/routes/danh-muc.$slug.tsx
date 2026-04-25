@@ -23,6 +23,18 @@ import {
   productCategoryToSlug,
 } from "@/data/categories";
 import { products, type Product } from "@/data/products";
+import { useCart, parsePrice } from "@/lib/cart";
+
+function addToCart(p: Product, addItem: ReturnType<typeof useCart>["addItem"]) {
+  addItem({
+    slug: p.slug,
+    name: p.name,
+    code: p.code,
+    img: p.img,
+    price: parsePrice(p.price),
+    priceLabel: p.price,
+  });
+}
 
 export const Route = createFileRoute("/danh-muc/$slug")({
   loader: ({ params }) => {
@@ -441,6 +453,7 @@ function Package({ className }: { className?: string }) {
 }
 
 function ProductGridCard({ p }: { p: Product }) {
+  const { addItem } = useCart();
   return (
     <article className="group flex flex-col overflow-hidden rounded-xl border border-border bg-white transition-all hover:border-primary/40 hover:shadow-[var(--shadow-elevated)]">
       <Link
@@ -510,6 +523,7 @@ function ProductGridCard({ p }: { p: Product }) {
 }
 
 function ProductListCard({ p }: { p: Product }) {
+  const { addItem } = useCart();
   return (
     <article className="group grid grid-cols-1 sm:grid-cols-[240px_1fr] gap-5 overflow-hidden rounded-xl border border-border bg-white p-4 transition-all hover:border-primary/40 hover:shadow-[var(--shadow-elevated)]">
       <Link
