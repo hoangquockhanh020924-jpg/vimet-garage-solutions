@@ -14,6 +14,18 @@ import { Footer } from "@/components/site/Footer";
 import { categoryList, productCategoryToSlug } from "@/data/categories";
 import { products, type Product } from "@/data/products";
 import { ShoppingCart, Eye, Star } from "lucide-react";
+import { useCart, parsePrice } from "@/lib/cart";
+
+function addToCart(p: Product, addItem: ReturnType<typeof useCart>["addItem"]) {
+  addItem({
+    slug: p.slug,
+    name: p.name,
+    code: p.code,
+    img: p.img,
+    price: parsePrice(p.price),
+    priceLabel: p.price,
+  });
+}
 
 export const Route = createFileRoute("/danh-muc/")({
   head: () => ({
@@ -390,7 +402,10 @@ function ProductGridCard({ p }: { p: Product }) {
         </div>
 
         <div className="mt-4 flex gap-2">
-          <button className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-3 py-2.5 text-xs font-semibold text-white hover:bg-highlight hover:text-secondary transition-colors">
+          <button
+            onClick={() => addToCart(p, addItem)}
+            className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-3 py-2.5 text-xs font-semibold text-white hover:bg-highlight hover:text-secondary transition-colors"
+          >
             <ShoppingCart className="h-3.5 w-3.5" />
             Đặt mua
           </button>
@@ -459,7 +474,10 @@ function ProductListCard({ p }: { p: Product }) {
             )}
           </div>
           <div className="flex gap-2">
-            <button className="inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-white hover:bg-highlight hover:text-secondary transition-colors">
+            <button
+              onClick={() => addToCart(p, addItem)}
+              className="inline-flex items-center justify-center gap-1.5 rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-white hover:bg-highlight hover:text-secondary transition-colors"
+            >
               <ShoppingCart className="h-3.5 w-3.5" />
               Đặt mua
             </button>
