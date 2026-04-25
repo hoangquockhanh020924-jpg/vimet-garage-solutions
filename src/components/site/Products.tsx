@@ -1,8 +1,10 @@
 import { ShoppingCart, Eye } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { products } from "@/data/products";
+import { useCart, parsePrice } from "@/lib/cart";
 
 export function Products() {
+  const { addItem } = useCart();
   return (
     <section id="products" className="bg-white py-20">
       <div className="container-prose">
