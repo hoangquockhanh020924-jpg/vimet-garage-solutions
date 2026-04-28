@@ -35,7 +35,7 @@ export function Footer() {
             </div>
             <div>
               <div className="font-display text-xl font-bold">VIMET</div>
-              <div className="text-[10px] uppercase tracking-[0.18em] text-white/60">Vimet Crop</div>
+              <div className="text-[10px] uppercase tracking-[0.18em] text-white/60">Vimet Corp</div>
             </div>
           </div>
           <p className="mt-4 text-sm text-white/70 leading-relaxed">

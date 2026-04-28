@@ -48,7 +48,7 @@
 
   /* From brand palette */
   --primary: oklch(0.55 0.19 25);           /* #CF2E2E red */
-  --primary-foreground: oklch(0.99 0 0);
+  --primary-foreground: #F5F5F5;
   --primary-dark: oklch(0.42 0.16 25);
 
   --ink: oklch(0.18 0.005 270);             /* #1A1A1A */
@@ -58,16 +58,16 @@
   --highlight: oklch(0.86 0.18 92);         /* warm amber/yellow */
   --highlight-foreground: oklch(0.18 0.005 270);
 
-  --background: oklch(1 0 0);
+  --background: #F5F5F5;
   --foreground: oklch(0.18 0.005 270);
 
-  --card: oklch(1 0 0);
+  --card: #F5F5F5;
   --card-foreground: oklch(0.18 0.005 270);
-  --popover: oklch(1 0 0);
+  --popover: #F5F5F5;
   --popover-foreground: oklch(0.18 0.005 270);
 
   --secondary: oklch(0.18 0.005 270);        /* #1A1A1A */
-  --secondary-foreground: oklch(0.99 0 0);
+  --secondary-foreground: #F5F5F5;
 
   --muted: oklch(0.965 0.003 260);
   --muted-foreground: oklch(0.56 0.01 260);  /* #8E9196 tertiary */
@@ -75,7 +75,7 @@
   --accent-foreground: oklch(0.18 0.005 270);
 
   --destructive: oklch(0.55 0.19 25);
-  --destructive-foreground: oklch(0.99 0 0);
+  --destructive-foreground: #F5F5F5;
 
   --border: oklch(0.92 0.005 260);
   --input: oklch(0.92 0.005 260);

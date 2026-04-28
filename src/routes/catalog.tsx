@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { categoryList } from "@/data/categories";
+import catalogHeroBg from "@/assets/images/brand/backgroundcatalog.jpeg";
 
 export const Route = createFileRoute("/catalog")({
   head: () => ({
@@ -141,7 +142,14 @@ function CatalogPage() {
 
       <main>
         {/* Hero */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary-dark text-white">
+        <section className="relative overflow-hidden text-white">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${catalogHeroBg})`,
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-secondary/85 via-secondary/70 to-secondary/40" />
           <div
             className="absolute inset-0 opacity-10"
             style={{

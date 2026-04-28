@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThanhToanRouteImport } from './routes/thanh-toan'
+import { Route as LienHeRouteImport } from './routes/lien-he'
 import { Route as GioiThieuRouteImport } from './routes/gioi-thieu'
 import { Route as GioHangRouteImport } from './routes/gio-hang'
 import { Route as CatalogRouteImport } from './routes/catalog'
@@ -21,6 +22,11 @@ import { Route as DanhMucSlugRouteImport } from './routes/danh-muc.$slug'
 const ThanhToanRoute = ThanhToanRouteImport.update({
   id: '/thanh-toan',
   path: '/thanh-toan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LienHeRoute = LienHeRouteImport.update({
+  id: '/lien-he',
+  path: '/lien-he',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GioiThieuRoute = GioiThieuRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/catalog': typeof CatalogRoute
   '/gio-hang': typeof GioHangRoute
   '/gioi-thieu': typeof GioiThieuRoute
+  '/lien-he': typeof LienHeRoute
   '/thanh-toan': typeof ThanhToanRoute
   '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/catalog': typeof CatalogRoute
   '/gio-hang': typeof GioHangRoute
   '/gioi-thieu': typeof GioiThieuRoute
+  '/lien-he': typeof LienHeRoute
   '/thanh-toan': typeof ThanhToanRoute
   '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/catalog': typeof CatalogRoute
   '/gio-hang': typeof GioHangRoute
   '/gioi-thieu': typeof GioiThieuRoute
+  '/lien-he': typeof LienHeRoute
   '/thanh-toan': typeof ThanhToanRoute
   '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/catalog'
     | '/gio-hang'
     | '/gioi-thieu'
+    | '/lien-he'
     | '/thanh-toan'
     | '/danh-muc/$slug'
     | '/san-pham/$slug'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/catalog'
     | '/gio-hang'
     | '/gioi-thieu'
+    | '/lien-he'
     | '/thanh-toan'
     | '/danh-muc/$slug'
     | '/san-pham/$slug'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/catalog'
     | '/gio-hang'
     | '/gioi-thieu'
+    | '/lien-he'
     | '/thanh-toan'
     | '/danh-muc/$slug'
     | '/san-pham/$slug'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   CatalogRoute: typeof CatalogRoute
   GioHangRoute: typeof GioHangRoute
   GioiThieuRoute: typeof GioiThieuRoute
+  LienHeRoute: typeof LienHeRoute
   ThanhToanRoute: typeof ThanhToanRoute
   DanhMucSlugRoute: typeof DanhMucSlugRoute
   SanPhamSlugRoute: typeof SanPhamSlugRoute
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/thanh-toan'
       fullPath: '/thanh-toan'
       preLoaderRoute: typeof ThanhToanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lien-he': {
+      id: '/lien-he'
+      path: '/lien-he'
+      fullPath: '/lien-he'
+      preLoaderRoute: typeof LienHeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gioi-thieu': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   CatalogRoute: CatalogRoute,
   GioHangRoute: GioHangRoute,
   GioiThieuRoute: GioiThieuRoute,
+  LienHeRoute: LienHeRoute,
   ThanhToanRoute: ThanhToanRoute,
   DanhMucSlugRoute: DanhMucSlugRoute,
   SanPhamSlugRoute: SanPhamSlugRoute,

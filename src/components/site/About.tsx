@@ -14,7 +14,7 @@ export function About() {
       <div className="container-prose relative grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
           <div className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-            Về Vimet Crop
+            Về Vimet Corp
           </div>
           <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">
             Đối tác tin cậy của ngành dịch vụ ô tô Việt Nam
@@ -36,7 +36,7 @@ export function About() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#contact"
+              href="/lien-he"
               className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-highlight hover:text-secondary transition-colors"
             >
               Nhận tư vấn miễn phí

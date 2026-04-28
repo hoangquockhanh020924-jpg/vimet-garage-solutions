@@ -27,7 +27,7 @@ import { formatPrice, useCart } from "@/lib/cart";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const navItems = [
-  { label: "Trang chủ", to: "/" as const, hash: "top" },
+  { label: "Trang chủ", to: "/" as const },
   { label: "Giới thiệu", to: "/gioi-thieu" as const },
   { label: "Sản phẩm", to: "/danh-muc" as const },
   { label: "Hãng sản xuất", to: "/" as const, hash: "brands" },
@@ -35,7 +35,7 @@ const navItems = [
   { label: "Tuyển dụng", to: "/" as const, hash: "recruit" },
   { label: "Catalog", to: "/catalog" as const },
   { label: "Video", to: "/" as const, hash: "video" },
-  { label: "Liên hệ", to: "/" as const, hash: "contact" },
+  { label: "Liên hệ", to: "/lien-he" as const },
 ];
 
 type Category = {
@@ -236,7 +236,7 @@ export function Header() {
               className="h-12 w-12 md:h-14 md:w-14 object-contain transition-transform group-hover:scale-105"
             />
             <div className="leading-tight hidden sm:block">
-              <div className="font-display text-xl font-bold tracking-tight text-primary">VIMET CROP</div>
+              <div className="font-display text-xl font-bold tracking-tight text-primary">VIMET CORP</div>
               <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Công ty Cổ phần kỹ thuật thiết bị Việt Mỹ
               </div>
