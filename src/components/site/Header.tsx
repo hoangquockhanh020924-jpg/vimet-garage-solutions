@@ -470,14 +470,14 @@ export function Header() {
             )}
           </div>
 
-          {/* Nav links */}
-          <ul className="flex items-center gap-0.5 border-l border-white/15">
+          {/* Nav links — phân bố đều, căn giữa */}
+          <ul className="flex flex-1 items-stretch justify-between border-l border-white/15">
             {navItems.map((item) => (
-              <li key={item.label}>
+              <li key={item.label} className="flex-1">
                 <Link
                   to={item.to}
                   {...(item.hash ? { hash: item.hash } : {})}
-                  className="group relative inline-block whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-white transition-colors hover:text-highlight"
+                  className="group relative flex h-full items-center justify-center whitespace-nowrap px-2 py-3 text-[13px] font-medium text-white transition-colors hover:text-highlight"
                 >
                   <span className="relative">
                     {item.label}
