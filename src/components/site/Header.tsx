@@ -23,11 +23,12 @@ import {
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { images } from "@/lib/images";
-import { useCart } from "@/lib/cart";
+import { formatPrice, useCart } from "@/lib/cart";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const navItems = [
   { label: "Trang chủ", to: "/" as const, hash: "top" },
-  { label: "Giới thiệu", to: "/" as const, hash: "about" },
+  { label: "Giới thiệu", to: "/gioi-thieu" as const },
   { label: "Sản phẩm", to: "/danh-muc" as const },
   { label: "Hãng sản xuất", to: "/" as const, hash: "brands" },
   { label: "Tin tức", to: "/" as const, hash: "news" },
@@ -184,7 +185,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [activeCat, setActiveCat] = useState<string>(categories[0].label);
   const [megaOpen, setMegaOpen] = useState(false);
-  const { count } = useCart();
+  const { count, items, subtotal, removeItem } = useCart();
 
   const activeCategory = categories.find((c) => c.label === activeCat) ?? categories[0];
 
@@ -249,7 +250,7 @@ export function Header() {
               <input
                 type="search"
                 placeholder="Tìm cầu nâng, máy chẩn đoán, máy ra vào lốp..."
-                className="w-full rounded-full border-2 border-primary/20 bg-white pl-11 pr-28 py-2.5 text-sm placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-4 focus:ring-primary/15 transition"
+                className="w-full rounded-full border-2 border-primary/20 bg-white pl-11 pr-28 py-2.5 text-sm placeholder:text-muted-foreground transition focus:border-highlight focus:outline-none focus:ring-4 focus:ring-highlight/25"
               />
               <button className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-full bg-primary px-5 py-1.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-highlight hover:text-secondary">
                 Tìm
@@ -272,16 +273,98 @@ export function Header() {
           </a>
 
           {/* Cart */}
-          <Link
-            to="/gio-hang"
-            aria-label="Giỏ hàng"
-            className="relative flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-highlight hover:text-secondary"
-          >
-            <ShoppingCart className="h-4 w-4" />
-            <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary px-1 text-[10px] font-bold text-white border-2 border-white">
-              {count}
-            </span>
-          </Link>
+          <HoverCard openDelay={120} closeDelay={120}>
+            <HoverCardTrigger asChild>
+              <Link
+                to="/gio-hang"
+                aria-label="Giỏ hàng"
+                className="relative flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-highlight hover:text-secondary"
+              >
+                <ShoppingCart className="h-4 w-4" />
+                <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary px-1 text-[10px] font-bold text-white border-2 border-white">
+                  {count}
+                </span>
+              </Link>
+            </HoverCardTrigger>
+
+            <HoverCardContent align="end" side="bottom" sideOffset={12} className="w-[22rem] p-0">
+              <div className="border-b border-border px-4 py-3">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <div className="text-sm font-bold text-secondary">Giỏ hàng của bạn</div>
+                    <div className="text-xs text-muted-foreground">
+                      {count === 0 ? "Chưa có sản phẩm nào" : `${count} sản phẩm đang chờ thanh toán`}
+                    </div>
+                  </div>
+                  <div className="rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary">
+                    {formatPrice(subtotal)}
+                  </div>
+                </div>
+              </div>
+
+              <div className="max-h-[22rem] overflow-y-auto">
+                {items.length > 0 ? (
+                  <ul className="divide-y divide-border">
+                    {items.map((item) => (
+                      <li key={item.slug} className="flex gap-3 px-4 py-3">
+                        <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-white">
+                          <img src={item.img} alt={item.name} className="h-full w-full object-contain p-1" />
+                        </div>
+
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-start justify-between gap-2">
+                            <div className="min-w-0">
+                              <Link
+                                to="/san-pham/$slug"
+                                params={{ slug: item.slug }}
+                                className="line-clamp-2 text-sm font-semibold text-secondary transition-colors hover:text-primary"
+                              >
+                                {item.name}
+                              </Link>
+                              <div className="mt-1 text-xs text-muted-foreground">
+                                SL: {item.qty} · {formatPrice(item.price)}
+                              </div>
+                            </div>
+
+                            <button
+                              type="button"
+                              onClick={() => removeItem(item.slug)}
+                              className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-red-200 bg-red-50 text-red-600 transition-colors hover:bg-red-100 hover:text-red-700"
+                              aria-label={`Xóa ${item.name}`}
+                            >
+                              <X className="h-4 w-4" />
+                            </button>
+                          </div>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="px-4 py-8 text-center">
+                    <div className="mx-auto mb-2 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
+                      <ShoppingCart className="h-5 w-5" />
+                    </div>
+                    <div className="text-sm font-semibold text-secondary">Giỏ hàng đang trống</div>
+                    <div className="mt-1 text-xs text-muted-foreground">
+                      Hãy thêm sản phẩm để xem nhanh ngay tại đây.
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className="flex items-center justify-between gap-3 border-t border-border px-4 py-3">
+                <div className="text-xs text-muted-foreground">
+                  Tổng cộng: <span className="font-semibold text-secondary">{formatPrice(subtotal)}</span>
+                </div>
+                <Link
+                  to="/gio-hang"
+                  className="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-highlight hover:text-secondary"
+                >
+                  Xem giỏ hàng
+                </Link>
+              </div>
+            </HoverCardContent>
+          </HoverCard>
 
           {/* Mobile toggle */}
           <button
@@ -393,7 +476,7 @@ export function Header() {
               <li key={item.label}>
                 <Link
                   to={item.to}
-                  hash={item.hash}
+                  {...(item.hash ? { hash: item.hash } : {})}
                   className="group relative inline-block whitespace-nowrap px-3.5 py-3 text-[13px] font-medium text-white transition-colors hover:text-highlight"
                 >
                   <span className="relative">
@@ -451,7 +534,7 @@ export function Header() {
                 <li key={item.label}>
                   <Link
                     to={item.to}
-                    hash={item.hash}
+                    {...(item.hash ? { hash: item.hash } : {})}
                     onClick={() => setOpen(false)}
                     className="block py-3 text-sm font-semibold text-secondary transition-colors hover:text-primary"
                   >

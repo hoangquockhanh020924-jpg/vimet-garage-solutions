@@ -58,7 +58,7 @@ export function Hero() {
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-md border-2 border-secondary bg-white px-6 py-3.5 text-sm font-semibold text-secondary hover:bg-secondary hover:text-secondary-foreground transition-colors"
+              className="inline-flex items-center gap-2 rounded-md border-2 border-secondary bg-white px-6 py-3.5 text-sm font-semibold text-secondary transition-colors hover:border-highlight hover:bg-highlight/10 hover:text-highlight"
             >
               <PhoneCall className="h-4 w-4" />
               Nhận tư vấn & báo giá

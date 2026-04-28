@@ -75,7 +75,7 @@ function RootComponent() {
   return (
     <CartProvider>
       <Outlet />
-      <Toaster position="top-right" richColors />
+      <Toaster position="bottom-right" richColors closeButton />
     </CartProvider>
   );
 }
