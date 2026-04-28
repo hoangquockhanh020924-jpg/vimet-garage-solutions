@@ -15,82 +15,89 @@ type Milestone = {
 const timeline: Milestone[] = [
   {
     year: "2007",
-    title: "Khởi nguồn từ mô hình tiền thân CSC",
+    title: "Tiền thân là DNTN Chín Số Chín (CSC)",
     paragraphs: [
-      "Tiền thân là Công ty TNHH Thương mại & Dịch vụ Kỹ thuật CSC, hình thành nền tảng hoạt động trong lĩnh vực phân phối thiết bị kỹ thuật và dịch vụ hỗ trợ cho ngành sửa chữa - bảo dưỡng ô tô.",
-      "Đặt những viên gạch đầu tiên cho hệ sinh thái sản phẩm và dịch vụ kỹ thuật chuyên sâu phục vụ thị trường Việt Nam.",
+      "Tiền thân là Doanh nghiệp Tư nhân Chín Số Chín (CSC) được thành lập bởi ông Đỗ Văn Hiến.",
+      "Đây là cột mốc khởi nguồn, đặt nền móng cho hành trình phát triển của Vimet Corp trong lĩnh vực thiết bị kỹ thuật.",
     ],
-    image: "https://vimet.com.vn/wp-content/uploads/2022/01/chung-nhan-thuong-hieu-2018.jpg",
+    image: "https://vimet.com.vn/wp-content/uploads/2022/08/TT-DoVanHien.jpg",
   },
   {
     year: "2009",
     title: "Chuyển đổi mô hình, phát triển thương hiệu VIMET CORP",
     paragraphs: [
-      "Mở rộng quy mô hoạt động, chuyển đổi mô hình và đổi tên thành Công ty CP Kỹ thuật Thiết bị Việt Mỹ (tên viết tắt: VIMET CORP).",
-      "VIMET hoạt động trong các lĩnh vực: thiết bị ô tô, thiết bị rửa xe, thiết bị bôi trơn, thiết bị kiểm định, thiết bị garage, thiết bị dạy nghề, thiết bị công nghiệp & dụng cụ cầm tay…",
+      "Mở rộng quy mô hoạt động, chuyển đổi mô hình hoạt động và đổi tên thành Công ty CP Kỹ thuật Thiết bị Việt Mỹ (tên viết tắt: VIMET CORP).",
+      "VIMET hoạt động trong các lĩnh vực kinh doanh như: thiết bị ô tô, thiết bị rửa xe làm sạch bôi trơn, thiết bị kiểm định, thiết bị garage, thiết bị dạy nghề, thiết bị công nghiệp & dụng cụ cầm tay…",
+      "Dịch vụ thương mại về kỹ thuật và công nghệ: thực hiện thi công, cung cấp, lắp đặt máy móc cho toàn bộ gói thầu hoặc cung cấp các dịch vụ theo yêu cầu từng hạng mục đầu tư của khách hàng từ: tư vấn, thiết kế, cung cấp thiết bị, lắp đặt chuyển giao công nghệ, dịch vụ sửa chữa, bảo hành, bảo trì dài hạn.",
     ],
-    image: "https://vimet.com.vn/wp-content/uploads/2022/01/sgs.jpg",
+    image: "https://vimet.com.vn/wp-content/uploads/2023/02/VIMET.jpg",
   },
   {
     year: "2012",
-    title: "Mở rộng hệ sinh thái đối tác quốc tế",
+    title: "Vimet Corp chính thức là nhà phân phối duy nhất TOPTUL tại Việt Nam",
     paragraphs: [
-      "Trở thành nhà nhập khẩu và phân phối chính thức của nhiều thương hiệu thiết bị hàng đầu thế giới đến từ Mỹ, Ý, Nhật Bản, Đài Loan, Hàn Quốc.",
-      "Tăng cường hợp tác trong mảng thiết bị garage, kiểm định và công nghiệp - khẳng định vị thế đối tác kỹ thuật uy tín tại Việt Nam.",
+      "Vimet Corp chính thức trở thành nhà phân phối duy nhất cho thương hiệu dụng cụ cầm tay TOPTUL tại Việt Nam.",
+      "Mở rộng quy mô hoạt động, hoàn thiện hệ sinh thái sản phẩm và dịch vụ cho ngành sửa chữa - bảo dưỡng ô tô và công nghiệp.",
     ],
-    image: "https://vimet.com.vn/wp-content/uploads/2022/01/chung-nhan-thuong-hieu-2020.jpg",
+    image: "https://vimet.com.vn/wp-content/uploads/2022/08/TOPTUL-thuong-hieu-1.jpg",
   },
   {
     year: "2014",
-    title: "Vimet Corp được Cục Sở hữu Trí tuệ cấp bằng nhãn hiệu HIDI",
+    title: "Được Cục Sở hữu Trí tuệ cấp bằng sáng chế thương hiệu HIDI",
     paragraphs: [
       "Vimet Corp chính thức được Cục Sở hữu Trí tuệ cấp bằng sáng chế thương hiệu HIDI - chuyên về thiết bị thủy lực & công cụ.",
-      "Cung cấp dịch vụ thương mại về kỹ thuật và công nghệ: tư vấn, thiết kế, cung cấp thiết bị, lắp đặt chuyển giao công nghệ, dịch vụ sửa chữa, bảo hành - bảo trì dài hạn.",
+      "Tiếp tục mở rộng quy mô và chuẩn hóa các dòng sản phẩm thiết bị kỹ thuật mang thương hiệu riêng của Vimet Corp.",
     ],
-    image: "https://vimet.com.vn/wp-content/uploads/2022/01/chung-nhan-nhan-hieu.jpg",
+    image: "https://vimet.com.vn/wp-content/uploads/2022/08/th%C6%B0%C6%A1ng-hi%E1%BB%87u-HIDI.jpg",
   },
   {
     year: "2017",
     title: "Áp dụng hệ thống quản lý chất lượng ISO 9001:2015",
     paragraphs: [
-      "Vimet Corp triển khai và đạt chứng nhận hệ thống quản lý chất lượng ISO 9001:2015 do tổ chức SGS đánh giá.",
+      "Vimet Corp chính thức áp dụng hệ thống quản lý chất lượng theo tiêu chuẩn ISO 9001:2015.",
       "Tiêu chuẩn hóa toàn bộ quy trình quản lý, vận hành và dịch vụ - nâng cao độ ổn định và hiệu quả phục vụ khách hàng trên toàn quốc.",
     ],
-    image: "https://vimet.com.vn/wp-content/uploads/2022/01/sgs.jpg",
+    image: "https://vimet.com.vn/wp-content/uploads/2022/08/ISO_9001_2015.jpg",
   },
   {
     year: "2018",
-    title: "Top 10 Thương hiệu mạnh - Sản phẩm chất lượng cao",
+    title: "TOP 10 Doanh nghiệp mạnh đất Việt",
     paragraphs: [
-      "Vimet Corp vinh dự nhận giải thưởng Top 10 Thương hiệu mạnh - Sản phẩm chất lượng cao do Hội Sở hữu Trí tuệ Việt Nam phối hợp tổ chức.",
+      "Vimet Corp nhận giải thưởng TOP 10 Doanh nghiệp mạnh đất Việt.",
       "Khẳng định uy tín thương hiệu và chất lượng sản phẩm trên thị trường thiết bị kỹ thuật Việt Nam.",
     ],
-    image: "https://vimet.com.vn/wp-content/uploads/2022/01/chung-nhan-thuong-hieu-2018.jpg",
+    image: "https://vimet.com.vn/wp-content/uploads/2022/08/thuonghieudatviet.jpg",
   },
   {
     year: "2019",
-    title: "Mở rộng năng lực triển khai dự án trên toàn quốc",
+    title: "Bằng khen của Cục thuế TP. Hồ Chí Minh",
     paragraphs: [
-      "Hoàn thiện đội ngũ kỹ sư triển khai - lắp đặt - bảo trì phủ sóng 63 tỉnh thành, đồng hành cùng hàng nghìn xưởng dịch vụ và nhà máy.",
-      "Đưa vào vận hành kho thiết bị hiện đại, sẵn sàng đáp ứng các đơn hàng quy mô lớn cho khách hàng doanh nghiệp.",
+      "Vimet Corp nhận bằng khen là doanh nghiệp có thành tích tốt thực hiện chính sách pháp luật thuế của Cục thuế TP. Hồ Chí Minh.",
+      "Ghi nhận sự minh bạch, tuân thủ pháp luật và đóng góp tích cực vào sự phát triển kinh tế địa phương.",
     ],
-    image: "https://vimet.com.vn/wp-content/uploads/2022/08/IMG_1641-1024x683.jpg",
+    image: "https://vimet.com.vn/wp-content/uploads/2021/04/progress-img.png",
   },
   {
     year: "2020",
-    title: "Top 10 Thương hiệu uy tín hàng đầu Việt Nam",
+    title: "TOP 10 Thương hiệu UY TÍN - Sản phẩm CHẤT LƯỢNG - Dịch vụ TIN DÙNG",
     paragraphs: [
-      "Vimet Corp tiếp tục được vinh danh Top 10 Thương hiệu - Nhãn hiệu uy tín hàng đầu Việt Nam.",
-      "Mở rộng danh mục giải pháp trọn gói cho garage ô tô, trung tâm đăng kiểm và xưởng dịch vụ chuyên nghiệp.",
+      "Thành công, phát triển vang dội, đạt nhiều thành tựu mới:",
+      "• Thành lập Vimet Group, hoạt động theo cơ chế Tập đoàn – Tổng công ty và các công ty thành viên.",
+      "• Vimet Corp nhận bằng khen là doanh nghiệp có thành tích tốt thực hiện chính sách pháp luật thuế của Cục thuế Quận 12.",
+      "• Đạt TOP 10 Thương hiệu uy tín – Dịch vụ tin dùng – Sản phẩm chất lượng năm 2020.",
+      "Và con thuyền Vimet Corp vẫn sẽ vượt đại dương, hội nhập, phát triển và không ngừng lớn mạnh trong tương lai.",
     ],
-    image: "https://vimet.com.vn/wp-content/uploads/2022/01/chung-nhan-thuong-hieu-2020.jpg",
+    image: "https://vimet.com.vn/wp-content/uploads/2022/08/thuonghieuuytin-1.jpg",
   },
   {
     year: "2022",
-    title: "Định hướng phát triển bền vững đến năm 2040",
+    title: "Vượt qua đại dịch Covid-19 và trở lại mạnh mẽ",
     paragraphs: [
-      "Vimet Corp công bố định hướng chiến lược dài hạn đến năm 2040 với mục tiêu nâng tầm thương hiệu Việt trong chuỗi cung ứng thiết bị công nghiệp phụ trợ.",
-      "Tiếp tục đầu tư vào đào tạo, chuyển giao công nghệ và dịch vụ hậu mãi - giữ vững chuẩn mực vận hành chuyên nghiệp ở từng chi tiết.",
+      "Vượt qua đại dịch Covid-19 và trở lại mạnh mẽ, giành được nhiều thành tựu mới:",
+      "• Kỷ niệm 15 năm – một chặng đường đi đầu chất lượng.",
+      "• Top 10 Thương hiệu dẫn đầu Việt Nam 2022.",
+      "• Đồng hành hợp tác cùng phát triển với Trường Đại học Văn Hiến.",
+      "• Doanh nhân Đỗ Văn Hiến – Tổng Giám đốc đạt danh hiệu DOANH NHÂN TIÊU BIỂU VIỆT NAM 2022.",
     ],
     image: "https://vimet.com.vn/wp-content/uploads/2022/08/IMG_1641-1024x683.jpg",
   },
@@ -308,23 +315,25 @@ function AboutPage() {
                 Công ty CP Kỹ thuật Thiết bị Việt Mỹ
               </h1>
               <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Vimet Corp hoạt động trong lĩnh vực cung cấp thiết bị và giải pháp kỹ thuật cho garage ô tô, xưởng
-                dịch vụ và sản xuất công nghiệp. Doanh nghiệp tập trung vào chất lượng sản phẩm, năng lực triển khai
-                thực tế và dịch vụ hậu mãi bền vững cho khách hàng trên toàn quốc.
+                Công ty CP Kỹ thuật Thiết bị Việt Mỹ (Vimet Corp) là doanh nghiệp có trụ sở tại Việt Nam, hoạt động
+                trong lĩnh vực thương mại và sản xuất thiết bị máy móc, công cụ dụng cụ cho các ngành công nghiệp:
+                thiết bị, dây chuyền sản xuất - sửa chữa - bảo dưỡng ô tô, xe máy, dụng cụ thiết bị cầm tay, khí nén,
+                thiết bị làm sạch và kiểm định đo lường. Đồng thời tư vấn, thiết kế và thi công, cung cấp trang thiết
+                bị nhà xưởng, garage, vật tư ngành công nghiệp sản xuất và dầu khí.
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
                 <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
                   <div className="font-display text-2xl font-bold text-primary">15+</div>
-                  <div className="text-sm text-muted-foreground">Năm phát triển</div>
+                  <div className="text-sm text-muted-foreground">Năm hình thành & phát triển</div>
                 </div>
                 <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
-                  <div className="font-display text-2xl font-bold text-primary">3.500+</div>
-                  <div className="text-sm text-muted-foreground">Khách hàng doanh nghiệp</div>
+                  <div className="font-display text-2xl font-bold text-primary">TOP 10</div>
+                  <div className="text-sm text-muted-foreground">Công ty hàng đầu Việt Nam</div>
                 </div>
                 <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
-                  <div className="font-display text-2xl font-bold text-primary">63/63</div>
-                  <div className="text-sm text-muted-foreground">Tỉnh thành phục vụ</div>
+                  <div className="font-display text-2xl font-bold text-primary">ISO</div>
+                  <div className="text-sm text-muted-foreground">9001:2015 chuẩn quốc tế</div>
                 </div>
               </div>
             </div>
@@ -333,17 +342,91 @@ function AboutPage() {
               <h2 className="font-display text-xl font-bold">Giới thiệu chung</h2>
               <div className="mt-4 space-y-3 text-sm leading-relaxed text-white/75">
                 <p>
-                  Doanh nghiệp phát triển từ nền tảng giai đoạn 2007, chuyển đổi mô hình năm 2009 và mở rộng thành hệ
-                  sinh thái sản phẩm - dịch vụ kỹ thuật cho nhiều nhóm ngành.
+                  Vimet Corp được thành lập từ năm 2007, tiền thân là DNTN CSC. Năm 2009 chuyển đổi loại hình công ty
+                  cổ phần và phát triển thành thương hiệu VIMET CORP như hiện nay.
                 </p>
                 <p>
-                  Vimet theo định hướng dài hạn đến năm 2040 với mục tiêu nâng tầm thương hiệu Việt trong chuỗi cung
-                  ứng thiết bị công nghiệp phụ trợ, đồng thời duy trì chuẩn vận hành chuyên nghiệp theo từng chi tiết.
+                  Trải qua hơn 15 năm hình thành & phát triển, Vimet đã vươn lên trở thành 1 trong 10 công ty hàng đầu
+                  Việt Nam trong ngành cung cấp thiết bị sửa chữa ô tô và công - dụng cụ.
                 </p>
               </div>
               <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground">
                 <Clock3 className="h-3.5 w-3.5" />
-                Hành trình phát triển bền vững
+                Chuyên nghiệp từng chi tiết
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border bg-white py-14 md:py-16">
+          <div className="container-prose">
+            <div className="mb-8 text-center">
+              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Định hướng chiến lược</div>
+              <h2 className="mt-2 font-display text-3xl font-bold text-secondary">Tầm nhìn - Sứ mệnh - Giá trị cốt lõi</h2>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              <article className="rounded-2xl border border-border bg-neutral p-6 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                  Tầm nhìn 2040
+                </div>
+                <h3 className="mt-3 font-display text-lg font-bold text-secondary">Thương hiệu quốc gia dẫn đầu</h3>
+                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                  <li>– VIMET trở thành thương hiệu quốc gia, dẫn đầu ngành công nghiệp phụ trợ về cung cấp trang thiết bị máy móc, công cụ dụng cụ, gắn liền với mục tiêu Quốc gia thịnh vượng.</li>
+                  <li>– Hợp tác sản xuất và xây dựng VIMET là thương hiệu luôn có máy móc thiết bị chất lượng cao, công nghệ tiên tiến hàng đầu thế giới.</li>
+                </ul>
+              </article>
+
+              <article className="rounded-2xl border border-border bg-neutral p-6 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                  Sứ mệnh
+                </div>
+                <h3 className="mt-3 font-display text-lg font-bold text-secondary">Mang tinh hoa thế giới về Việt Nam</h3>
+                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                  <li>– Mang dây chuyền sản xuất, trang thiết bị máy móc, công cụ dụng cụ tinh hoa nhất thế giới đến nhà máy, công trình của khách hàng tại Việt Nam.</li>
+                  <li>– Bán máy để tạo ra giá trị thặng dư, hiện thực hóa giấc mơ và xây dựng sự nghiệp vinh quang cho khách hàng.</li>
+                  <li>– Góp phần xây dựng Quốc gia thịnh vượng, phụng sự lợi ích lâu dài cho cộng đồng Vimet.</li>
+                </ul>
+              </article>
+
+              <article className="rounded-2xl border border-border bg-neutral p-6 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                  Giá trị cốt lõi
+                </div>
+                <h3 className="mt-3 font-display text-lg font-bold text-secondary">"Cùng bạn bước tới thành công"</h3>
+                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                  <li>– Nghiên cứu sáng tạo để sản phẩm bền bỉ, công nghệ tiên phong nhằm "Nâng tầm sản phẩm dịch vụ".</li>
+                  <li>– Tôn vinh sự chính trực trong tư tưởng, chuyên nghiệp trong hành động.</li>
+                  <li>– Giá trị tạo ra để phụng sự lợi ích lâu dài cho cộng đồng Vimet.</li>
+                </ul>
+              </article>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-border bg-secondary p-6 text-secondary-foreground md:p-8">
+              <div className="grid gap-6 md:grid-cols-2">
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                    Văn hóa nội bộ
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-white/75">
+                    Phương châm: <strong className="text-white">"Lấy trí công để xây chữ tín – Dùng chữ tín để kinh doanh"</strong>.
+                    Chúng tôi làm việc dựa trên nguyên tắc: chính trực, tự giác, trách nhiệm, trọng tín, kế thừa & cải tiến.
+                    Hài hòa lợi ích trong các mối quan hệ khách hàng, người lao động, chủ đầu tư, đối tác, chính sách
+                    pháp luật và văn hóa xã hội. Chuyên nghiệp, công bằng để cùng tạo ra giá trị "Trường tồn để cống hiến".
+                  </p>
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                    Chính sách chất lượng (2020 - 2025)
+                  </div>
+                  <p className="mt-3 text-sm font-semibold text-white">Phương châm: Chuyên nghiệp từng chi tiết</p>
+                  <ul className="mt-2 space-y-1.5 text-sm leading-relaxed text-white/75">
+                    <li>• Nâng tầm chất lượng cho từng sản phẩm dịch vụ.</li>
+                    <li>• Làm đúng ngay lần đầu, hẹn đúng giờ sẽ tới.</li>
+                    <li>• Thông tin rõ ràng, hàng hóa sẵn sàng, chứng từ chính xác trước khi đi giao.</li>
+                    <li>• Phong cách chuyên nghiệp, phục vụ tận tâm, tinh thần hợp tác.</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
