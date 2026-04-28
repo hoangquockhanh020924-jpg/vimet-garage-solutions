@@ -1,0 +1,39 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "title": "Thủy lực: Nguyên lý và cấu tạo của hệ thống thủy lực",
+      "excerpt": "Tổng quan nguyên lý làm việc, các thành phần chính và ứng dụng của hệ thống thủy lực trong thiết bị gara.",
+      "category": "Kỹ thuật",
+      "date": "26/04/2026",
+      "image": "https://vimet.com.vn/wp-content/uploads/2026/04/31_11zon-280x180.webp",
+      "href": "https://vimet.com.vn/he-thong-thuy-luc/"
+    },
+    {
+      "id": 2,
+      "title": "5+ cầu nâng ô tô phổ biến nhất hiện nay",
+      "excerpt": "Bài viết tổng hợp các dòng cầu nâng được nhiều gara lựa chọn, kèm ưu điểm và gợi ý ứng dụng thực tế.",
+      "category": "Cầu nâng ô tô",
+      "date": "23/04/2026",
+      "image": "https://vimet.com.vn/wp-content/uploads/2026/04/12_11zon-280x180.webp",
+      "href": "https://vimet.com.vn/cau-nang-o-to-pho-bien-nhat/"
+    },
+    {
+      "id": 3,
+      "title": "Máy nén khí bị nóng: Nguyên nhân và cách xử lý hiệu quả",
+      "excerpt": "Nhận diện các nguyên nhân khiến máy nén khí quá nhiệt và cách khắc phục để đảm bảo vận hành ổn định.",
+      "category": "Khí nén",
+      "date": "21/04/2026",
+      "image": "https://vimet.com.vn/wp-content/uploads/2026/04/Thiet-ke-chua-co-ten-2-280x180.png",
+      "href": "https://vimet.com.vn/may-nen-khi-bi-nong-nguyen-nhan-va-cach-xu-ly/"
+    }
+  ],
+  "categories": [
+    { "id": 1, "name": "Tất cả" },
+    { "id": 2, "name": "Kỹ thuật" },
+    { "id": 3, "name": "Cầu nâng ô tô" },
+    { "id": 4, "name": "Khí nén" },
+    { "id": 5, "name": "Lốp xe" },
+    { "id": 6, "name": "Dụng cụ" }
+  ]
+}

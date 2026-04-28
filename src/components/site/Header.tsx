@@ -31,10 +31,10 @@ const navItems = [
   { label: "Giới thiệu", to: "/gioi-thieu" as const },
   { label: "Sản phẩm", to: "/danh-muc" as const },
   { label: "Hãng sản xuất", to: "/" as const, hash: "brands" },
-  { label: "Tin tức", to: "/" as const, hash: "news" },
-  { label: "Tuyển dụng", to: "/" as const, hash: "recruit" },
+  { label: "Tin tức", to: "/tin-tuc" as const },
+  { label: "Tuyển dụng", to: "/tuyen-dung" as const },
   { label: "Catalog", to: "/catalog" as const },
-  { label: "Video", to: "/" as const, hash: "video" },
+  { label: "Video", to: "/video" as const },
   { label: "Liên hệ", to: "/lien-he" as const },
 ];
 
@@ -209,9 +209,9 @@ export function Header() {
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#catalog" className="transition-colors hover:text-highlight">Tải Catalog</a>
+            <Link to="/catalog" className="transition-colors hover:text-highlight">Tải Catalog</Link>
             <span className="h-3 w-px bg-white/25" />
-            <a href="#recruit" className="transition-colors hover:text-highlight">Tuyển dụng</a>
+            <Link to="/tuyen-dung" className="transition-colors hover:text-highlight">Tuyển dụng</Link>
             <span className="h-3 w-px bg-white/25" />
             <div className="flex items-center gap-2">
               <a href="#" aria-label="Facebook" className="transition-colors hover:text-highlight">

@@ -9,6 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VideoRouteImport } from './routes/video'
+import { Route as TuyenDungRouteImport } from './routes/tuyen-dung'
+import { Route as TinTucRouteImport } from './routes/tin-tuc'
 import { Route as ThanhToanRouteImport } from './routes/thanh-toan'
 import { Route as LienHeRouteImport } from './routes/lien-he'
 import { Route as GioiThieuRouteImport } from './routes/gioi-thieu'
@@ -19,6 +22,21 @@ import { Route as DanhMucIndexRouteImport } from './routes/danh-muc.index'
 import { Route as SanPhamSlugRouteImport } from './routes/san-pham.$slug'
 import { Route as DanhMucSlugRouteImport } from './routes/danh-muc.$slug'
 
+const VideoRoute = VideoRouteImport.update({
+  id: '/video',
+  path: '/video',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TuyenDungRoute = TuyenDungRouteImport.update({
+  id: '/tuyen-dung',
+  path: '/tuyen-dung',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TinTucRoute = TinTucRouteImport.update({
+  id: '/tin-tuc',
+  path: '/tin-tuc',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ThanhToanRoute = ThanhToanRouteImport.update({
   id: '/thanh-toan',
   path: '/thanh-toan',
@@ -72,6 +90,9 @@ export interface FileRoutesByFullPath {
   '/gioi-thieu': typeof GioiThieuRoute
   '/lien-he': typeof LienHeRoute
   '/thanh-toan': typeof ThanhToanRoute
+  '/tin-tuc': typeof TinTucRoute
+  '/tuyen-dung': typeof TuyenDungRoute
+  '/video': typeof VideoRoute
   '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
   '/danh-muc/': typeof DanhMucIndexRoute
@@ -83,6 +104,9 @@ export interface FileRoutesByTo {
   '/gioi-thieu': typeof GioiThieuRoute
   '/lien-he': typeof LienHeRoute
   '/thanh-toan': typeof ThanhToanRoute
+  '/tin-tuc': typeof TinTucRoute
+  '/tuyen-dung': typeof TuyenDungRoute
+  '/video': typeof VideoRoute
   '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
   '/danh-muc': typeof DanhMucIndexRoute
@@ -95,6 +119,9 @@ export interface FileRoutesById {
   '/gioi-thieu': typeof GioiThieuRoute
   '/lien-he': typeof LienHeRoute
   '/thanh-toan': typeof ThanhToanRoute
+  '/tin-tuc': typeof TinTucRoute
+  '/tuyen-dung': typeof TuyenDungRoute
+  '/video': typeof VideoRoute
   '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
   '/danh-muc/': typeof DanhMucIndexRoute
@@ -108,6 +135,9 @@ export interface FileRouteTypes {
     | '/gioi-thieu'
     | '/lien-he'
     | '/thanh-toan'
+    | '/tin-tuc'
+    | '/tuyen-dung'
+    | '/video'
     | '/danh-muc/$slug'
     | '/san-pham/$slug'
     | '/danh-muc/'
@@ -119,6 +149,9 @@ export interface FileRouteTypes {
     | '/gioi-thieu'
     | '/lien-he'
     | '/thanh-toan'
+    | '/tin-tuc'
+    | '/tuyen-dung'
+    | '/video'
     | '/danh-muc/$slug'
     | '/san-pham/$slug'
     | '/danh-muc'
@@ -130,6 +163,9 @@ export interface FileRouteTypes {
     | '/gioi-thieu'
     | '/lien-he'
     | '/thanh-toan'
+    | '/tin-tuc'
+    | '/tuyen-dung'
+    | '/video'
     | '/danh-muc/$slug'
     | '/san-pham/$slug'
     | '/danh-muc/'
@@ -142,6 +178,9 @@ export interface RootRouteChildren {
   GioiThieuRoute: typeof GioiThieuRoute
   LienHeRoute: typeof LienHeRoute
   ThanhToanRoute: typeof ThanhToanRoute
+  TinTucRoute: typeof TinTucRoute
+  TuyenDungRoute: typeof TuyenDungRoute
+  VideoRoute: typeof VideoRoute
   DanhMucSlugRoute: typeof DanhMucSlugRoute
   SanPhamSlugRoute: typeof SanPhamSlugRoute
   DanhMucIndexRoute: typeof DanhMucIndexRoute
@@ -149,6 +188,27 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/video': {
+      id: '/video'
+      path: '/video'
+      fullPath: '/video'
+      preLoaderRoute: typeof VideoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tuyen-dung': {
+      id: '/tuyen-dung'
+      path: '/tuyen-dung'
+      fullPath: '/tuyen-dung'
+      preLoaderRoute: typeof TuyenDungRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tin-tuc': {
+      id: '/tin-tuc'
+      path: '/tin-tuc'
+      fullPath: '/tin-tuc'
+      preLoaderRoute: typeof TinTucRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/thanh-toan': {
       id: '/thanh-toan'
       path: '/thanh-toan'
@@ -222,6 +282,9 @@ const rootRouteChildren: RootRouteChildren = {
   GioiThieuRoute: GioiThieuRoute,
   LienHeRoute: LienHeRoute,
   ThanhToanRoute: ThanhToanRoute,
+  TinTucRoute: TinTucRoute,
+  TuyenDungRoute: TuyenDungRoute,
+  VideoRoute: VideoRoute,
   DanhMucSlugRoute: DanhMucSlugRoute,
   SanPhamSlugRoute: SanPhamSlugRoute,
   DanhMucIndexRoute: DanhMucIndexRoute,
