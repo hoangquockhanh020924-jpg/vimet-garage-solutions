@@ -315,23 +315,25 @@ function AboutPage() {
                 Công ty CP Kỹ thuật Thiết bị Việt Mỹ
               </h1>
               <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">
-                Vimet Corp hoạt động trong lĩnh vực cung cấp thiết bị và giải pháp kỹ thuật cho garage ô tô, xưởng
-                dịch vụ và sản xuất công nghiệp. Doanh nghiệp tập trung vào chất lượng sản phẩm, năng lực triển khai
-                thực tế và dịch vụ hậu mãi bền vững cho khách hàng trên toàn quốc.
+                Công ty CP Kỹ thuật Thiết bị Việt Mỹ (Vimet Corp) là doanh nghiệp có trụ sở tại Việt Nam, hoạt động
+                trong lĩnh vực thương mại và sản xuất thiết bị máy móc, công cụ dụng cụ cho các ngành công nghiệp:
+                thiết bị, dây chuyền sản xuất - sửa chữa - bảo dưỡng ô tô, xe máy, dụng cụ thiết bị cầm tay, khí nén,
+                thiết bị làm sạch và kiểm định đo lường. Đồng thời tư vấn, thiết kế và thi công, cung cấp trang thiết
+                bị nhà xưởng, garage, vật tư ngành công nghiệp sản xuất và dầu khí.
               </p>
 
               <div className="mt-8 grid gap-3 sm:grid-cols-3">
                 <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
                   <div className="font-display text-2xl font-bold text-primary">15+</div>
-                  <div className="text-sm text-muted-foreground">Năm phát triển</div>
+                  <div className="text-sm text-muted-foreground">Năm hình thành & phát triển</div>
                 </div>
                 <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
-                  <div className="font-display text-2xl font-bold text-primary">3.500+</div>
-                  <div className="text-sm text-muted-foreground">Khách hàng doanh nghiệp</div>
+                  <div className="font-display text-2xl font-bold text-primary">TOP 10</div>
+                  <div className="text-sm text-muted-foreground">Công ty hàng đầu Việt Nam</div>
                 </div>
                 <div className="rounded-xl border border-border bg-white p-4 shadow-sm">
-                  <div className="font-display text-2xl font-bold text-primary">63/63</div>
-                  <div className="text-sm text-muted-foreground">Tỉnh thành phục vụ</div>
+                  <div className="font-display text-2xl font-bold text-primary">ISO</div>
+                  <div className="text-sm text-muted-foreground">9001:2015 chuẩn quốc tế</div>
                 </div>
               </div>
             </div>
@@ -340,17 +342,91 @@ function AboutPage() {
               <h2 className="font-display text-xl font-bold">Giới thiệu chung</h2>
               <div className="mt-4 space-y-3 text-sm leading-relaxed text-white/75">
                 <p>
-                  Doanh nghiệp phát triển từ nền tảng giai đoạn 2007, chuyển đổi mô hình năm 2009 và mở rộng thành hệ
-                  sinh thái sản phẩm - dịch vụ kỹ thuật cho nhiều nhóm ngành.
+                  Vimet Corp được thành lập từ năm 2007, tiền thân là DNTN CSC. Năm 2009 chuyển đổi loại hình công ty
+                  cổ phần và phát triển thành thương hiệu VIMET CORP như hiện nay.
                 </p>
                 <p>
-                  Vimet theo định hướng dài hạn đến năm 2040 với mục tiêu nâng tầm thương hiệu Việt trong chuỗi cung
-                  ứng thiết bị công nghiệp phụ trợ, đồng thời duy trì chuẩn vận hành chuyên nghiệp theo từng chi tiết.
+                  Trải qua hơn 15 năm hình thành & phát triển, Vimet đã vươn lên trở thành 1 trong 10 công ty hàng đầu
+                  Việt Nam trong ngành cung cấp thiết bị sửa chữa ô tô và công - dụng cụ.
                 </p>
               </div>
               <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-foreground">
                 <Clock3 className="h-3.5 w-3.5" />
-                Hành trình phát triển bền vững
+                Chuyên nghiệp từng chi tiết
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-b border-border bg-white py-14 md:py-16">
+          <div className="container-prose">
+            <div className="mb-8 text-center">
+              <div className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">Định hướng chiến lược</div>
+              <h2 className="mt-2 font-display text-3xl font-bold text-secondary">Tầm nhìn - Sứ mệnh - Giá trị cốt lõi</h2>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              <article className="rounded-2xl border border-border bg-neutral p-6 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                  Tầm nhìn 2040
+                </div>
+                <h3 className="mt-3 font-display text-lg font-bold text-secondary">Thương hiệu quốc gia dẫn đầu</h3>
+                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                  <li>– VIMET trở thành thương hiệu quốc gia, dẫn đầu ngành công nghiệp phụ trợ về cung cấp trang thiết bị máy móc, công cụ dụng cụ, gắn liền với mục tiêu Quốc gia thịnh vượng.</li>
+                  <li>– Hợp tác sản xuất và xây dựng VIMET là thương hiệu luôn có máy móc thiết bị chất lượng cao, công nghệ tiên tiến hàng đầu thế giới.</li>
+                </ul>
+              </article>
+
+              <article className="rounded-2xl border border-border bg-neutral p-6 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                  Sứ mệnh
+                </div>
+                <h3 className="mt-3 font-display text-lg font-bold text-secondary">Mang tinh hoa thế giới về Việt Nam</h3>
+                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                  <li>– Mang dây chuyền sản xuất, trang thiết bị máy móc, công cụ dụng cụ tinh hoa nhất thế giới đến nhà máy, công trình của khách hàng tại Việt Nam.</li>
+                  <li>– Bán máy để tạo ra giá trị thặng dư, hiện thực hóa giấc mơ và xây dựng sự nghiệp vinh quang cho khách hàng.</li>
+                  <li>– Góp phần xây dựng Quốc gia thịnh vượng, phụng sự lợi ích lâu dài cho cộng đồng Vimet.</li>
+                </ul>
+              </article>
+
+              <article className="rounded-2xl border border-border bg-neutral p-6 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
+                <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                  Giá trị cốt lõi
+                </div>
+                <h3 className="mt-3 font-display text-lg font-bold text-secondary">"Cùng bạn bước tới thành công"</h3>
+                <ul className="mt-3 space-y-2 text-sm leading-relaxed text-muted-foreground">
+                  <li>– Nghiên cứu sáng tạo để sản phẩm bền bỉ, công nghệ tiên phong nhằm "Nâng tầm sản phẩm dịch vụ".</li>
+                  <li>– Tôn vinh sự chính trực trong tư tưởng, chuyên nghiệp trong hành động.</li>
+                  <li>– Giá trị tạo ra để phụng sự lợi ích lâu dài cho cộng đồng Vimet.</li>
+                </ul>
+              </article>
+            </div>
+
+            <div className="mt-6 rounded-2xl border border-border bg-secondary p-6 text-secondary-foreground md:p-8">
+              <div className="grid gap-6 md:grid-cols-2">
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                    Văn hóa nội bộ
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-white/75">
+                    Phương châm: <strong className="text-white">"Lấy trí công để xây chữ tín – Dùng chữ tín để kinh doanh"</strong>.
+                    Chúng tôi làm việc dựa trên nguyên tắc: chính trực, tự giác, trách nhiệm, trọng tín, kế thừa & cải tiến.
+                    Hài hòa lợi ích trong các mối quan hệ khách hàng, người lao động, chủ đầu tư, đối tác, chính sách
+                    pháp luật và văn hóa xã hội. Chuyên nghiệp, công bằng để cùng tạo ra giá trị "Trường tồn để cống hiến".
+                  </p>
+                </div>
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                    Chính sách chất lượng (2020 - 2025)
+                  </div>
+                  <p className="mt-3 text-sm font-semibold text-white">Phương châm: Chuyên nghiệp từng chi tiết</p>
+                  <ul className="mt-2 space-y-1.5 text-sm leading-relaxed text-white/75">
+                    <li>• Nâng tầm chất lượng cho từng sản phẩm dịch vụ.</li>
+                    <li>• Làm đúng ngay lần đầu, hẹn đúng giờ sẽ tới.</li>
+                    <li>• Thông tin rõ ràng, hàng hóa sẵn sàng, chứng từ chính xác trước khi đi giao.</li>
+                    <li>• Phong cách chuyên nghiệp, phục vụ tận tâm, tinh thần hợp tác.</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
