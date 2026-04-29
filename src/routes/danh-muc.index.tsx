@@ -139,6 +139,24 @@ function AllProductsPage() {
         </div>
       </div>
 
+      {q && (
+        <div className="border-b border-border bg-white">
+          <div className="container-prose flex flex-wrap items-center justify-between gap-3 py-4">
+            <div className="text-sm">
+              <span className="text-muted-foreground">Kết quả tìm kiếm cho</span>{" "}
+              <span className="font-bold text-secondary">"{q}"</span>{" "}
+              <span className="text-muted-foreground">— {filtered.length} sản phẩm</span>
+            </div>
+            <Link
+              to="/danh-muc"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-semibold text-secondary hover:border-highlight hover:bg-highlight"
+            >
+              Xóa tìm kiếm
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* Main layout */}
       <section className="py-8">
         <div className="container-prose grid gap-8 lg:grid-cols-[280px_1fr]">
