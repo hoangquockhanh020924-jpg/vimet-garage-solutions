@@ -366,6 +366,13 @@ export function Header() {
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
+
+        {/* Mobile/tablet search bar */}
+        <div className="lg:hidden border-t border-border bg-white px-4 py-3">
+          <div className="container-prose">
+            <SearchBox variant="desktop" />
+          </div>
+        </div>
       </div>
 
       {/* Nav — solid red bar with categories mega menu + nav links */}
