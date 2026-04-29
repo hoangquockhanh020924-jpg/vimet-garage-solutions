@@ -27,7 +27,12 @@ function addToCart(p: Product, addItem: ReturnType<typeof useCart>["addItem"]) {
   });
 }
 
+type DanhMucSearch = { q?: string };
+
 export const Route = createFileRoute("/danh-muc/")({
+  validateSearch: (search: Record<string, unknown>): DanhMucSearch => ({
+    q: typeof search.q === "string" && search.q.trim() ? search.q : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Tất cả sản phẩm — Vimet" },
@@ -63,6 +68,7 @@ const SORT_OPTIONS = [
 
 
 function AllProductsPage() {
+  const { q } = Route.useSearch();
   const [view, setView] = useState<"grid" | "list">("grid");
   const [sort, setSort] = useState<(typeof SORT_OPTIONS)[number]["id"]>("popular");
   const [priceRange, setPriceRange] = useState<(typeof PRICE_RANGES)[number]["id"]>("all");
@@ -77,6 +83,17 @@ function AllProductsPage() {
 
   const filtered = useMemo(() => {
     let list = [...items];
+
+    if (q) {
+      const term = q.toLowerCase();
+      list = list.filter(
+        (p) =>
+          p.name.toLowerCase().includes(term) ||
+          p.code.toLowerCase().includes(term) ||
+          p.brand.toLowerCase().includes(term) ||
+          p.category.toLowerCase().includes(term),
+      );
+    }
 
     if (selectedBrands.length > 0) {
       list = list.filter((p) => selectedBrands.includes(p.brand));
@@ -98,7 +115,7 @@ function AllProductsPage() {
     if (sort === "rating") list.sort((a, b) => b.rating - a.rating);
 
     return list;
-  }, [items, selectedBrands, priceRange, sort]);
+  }, [items, q, selectedBrands, priceRange, sort]);
 
   const toggleBrand = (b: string) => {
     setSelectedBrands((prev) =>
