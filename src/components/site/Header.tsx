@@ -26,6 +26,7 @@ import { images } from "@/lib/images";
 import { formatPrice, useCart } from "@/lib/cart";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { SearchBox } from "@/components/site/SearchBox";
+import { categoryList } from "@/data/categories";
 
 const navItems = [
   { label: "Trang chủ", to: "/" as const },
@@ -42,12 +43,14 @@ const navItems = [
 type Category = {
   label: string;
   icon: React.ComponentType<{ className?: string }>;
+  slug?: string;
   groups: { title: string; items: string[] }[];
 };
 
 const categories: Category[] = [
   {
     label: "Cầu nâng ô tô",
+    slug: "cau-nang-o-to",
     icon: Wrench,
     groups: [
       {
@@ -62,17 +65,13 @@ const categories: Category[] = [
       },
       {
         title: "Theo tải trọng",
-        items: [
-          "Tải trọng 3.5 tấn",
-          "Tải trọng 4.0 tấn",
-          "Tải trọng 4.5 tấn",
-          "Tải trọng 5.5 tấn",
-        ],
+        items: ["Tải trọng 3.5 tấn", "Tải trọng 4.0 tấn", "Tải trọng 4.5 tấn", "Tải trọng 5.5 tấn"],
       },
     ],
   },
   {
     label: "Máy chẩn đoán",
+    slug: "may-chan-doan",
     icon: Cpu,
     groups: [
       {
@@ -87,15 +86,12 @@ const categories: Category[] = [
   },
   {
     label: "Máy ra vào lốp",
+    slug: "may-ra-vao-lop",
     icon: CircleDot,
     groups: [
       {
         title: "Loại máy",
-        items: [
-          "Máy ra vào lốp tự động",
-          "Máy ra vào lốp bán tự động",
-          "Máy ra vào lốp xe tải",
-        ],
+        items: ["Máy ra vào lốp tự động", "Máy ra vào lốp bán tự động", "Máy ra vào lốp xe tải"],
       },
       {
         title: "Phụ kiện",
@@ -120,11 +116,17 @@ const categories: Category[] = [
   },
   {
     label: "Máy nén khí",
+    slug: "may-nen-khi",
     icon: Wind,
     groups: [
       {
         title: "Theo công nghệ",
-        items: ["Máy nén khí trục vít", "Máy nén khí piston", "Máy nén khí có dầu", "Máy nén khí không dầu"],
+        items: [
+          "Máy nén khí trục vít",
+          "Máy nén khí piston",
+          "Máy nén khí có dầu",
+          "Máy nén khí không dầu",
+        ],
       },
       {
         title: "Phụ trợ",
@@ -158,6 +160,7 @@ const categories: Category[] = [
   },
   {
     label: "Dụng cụ cầm tay",
+    slug: "dung-cu-gara",
     icon: Hammer,
     groups: [
       {
@@ -172,6 +175,7 @@ const categories: Category[] = [
   },
   {
     label: "Phụ tùng & vật tư",
+    slug: "phu-tung-vat-tu",
     icon: Cog,
     groups: [
       {
@@ -189,6 +193,9 @@ export function Header() {
   const { count, items, subtotal, removeItem } = useCart();
 
   const activeCategory = categories.find((c) => c.label === activeCat) ?? categories[0];
+  const activeCategoryRouteExists = Boolean(
+    activeCategory.slug && categoryList.some((cat) => cat.slug === activeCategory.slug),
+  );
 
   return (
     <header className="sticky top-0 z-50 w-full shadow-[0_2px_12px_-4px_rgba(207,46,46,0.25)]">
@@ -210,9 +217,13 @@ export function Header() {
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <Link to="/catalog" className="transition-colors hover:text-highlight">Tải Catalog</Link>
+            <Link to="/catalog" className="transition-colors hover:text-highlight">
+              Tải Catalog
+            </Link>
             <span className="h-3 w-px bg-white/25" />
-            <Link to="/tuyen-dung" className="transition-colors hover:text-highlight">Tuyển dụng</Link>
+            <Link to="/tuyen-dung" className="transition-colors hover:text-highlight">
+              Tuyển dụng
+            </Link>
             <span className="h-3 w-px bg-white/25" />
             <div className="flex items-center gap-2">
               <a href="#" aria-label="Facebook" className="transition-colors hover:text-highlight">
@@ -237,7 +248,9 @@ export function Header() {
               className="h-12 w-12 md:h-14 md:w-14 object-contain transition-transform group-hover:scale-105"
             />
             <div className="leading-tight hidden sm:block">
-              <div className="font-display text-xl font-bold tracking-tight text-primary">VIMET CORP</div>
+              <div className="font-display text-xl font-bold tracking-tight text-primary">
+                VIMET CORP
+              </div>
               <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
                 Công ty Cổ phần kỹ thuật thiết bị Việt Mỹ
               </div>
@@ -258,7 +271,9 @@ export function Header() {
               <Phone className="h-4 w-4" />
             </span>
             <span className="leading-tight text-white">
-              <span className="block text-[10px] font-semibold uppercase tracking-wider opacity-90">Hotline 24/7</span>
+              <span className="block text-[10px] font-semibold uppercase tracking-wider opacity-90">
+                Hotline 24/7
+              </span>
               <span className="block text-sm font-bold">028 388 88 388</span>
             </span>
           </a>
@@ -284,7 +299,9 @@ export function Header() {
                   <div>
                     <div className="text-sm font-bold text-secondary">Giỏ hàng của bạn</div>
                     <div className="text-xs text-muted-foreground">
-                      {count === 0 ? "Chưa có sản phẩm nào" : `${count} sản phẩm đang chờ thanh toán`}
+                      {count === 0
+                        ? "Chưa có sản phẩm nào"
+                        : `${count} sản phẩm đang chờ thanh toán`}
                     </div>
                   </div>
                   <div className="rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold text-secondary">
@@ -299,7 +316,11 @@ export function Header() {
                     {items.map((item) => (
                       <li key={item.slug} className="flex gap-3 px-4 py-3">
                         <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-md border border-border bg-white">
-                          <img src={item.img} alt={item.name} className="h-full w-full object-contain p-1" />
+                          <img
+                            src={item.img}
+                            alt={item.name}
+                            className="h-full w-full object-contain p-1"
+                          />
                         </div>
 
                         <div className="min-w-0 flex-1">
@@ -345,7 +366,8 @@ export function Header() {
 
               <div className="flex items-center justify-between gap-3 border-t border-border px-4 py-3">
                 <div className="text-xs text-muted-foreground">
-                  Tổng cộng: <span className="font-semibold text-secondary">{formatPrice(subtotal)}</span>
+                  Tổng cộng:{" "}
+                  <span className="font-semibold text-secondary">{formatPrice(subtotal)}</span>
                 </div>
                 <Link
                   to="/gio-hang"
@@ -400,29 +422,62 @@ export function Header() {
                 <ul className="bg-neutral border-r border-border py-2 max-h-[480px] overflow-y-auto">
                   {categories.map((cat) => {
                     const Icon = cat.icon;
+                    const hasRoute = Boolean(
+                      cat.slug && categoryList.some((item) => item.slug === cat.slug),
+                    );
                     const isActive = cat.label === activeCat;
                     return (
                       <li key={cat.label}>
-                        <button
-                          onMouseEnter={() => setActiveCat(cat.label)}
-                          className={`group flex w-full items-center gap-3 px-5 py-3 text-left text-sm font-semibold transition-colors ${
-                            isActive
-                              ? "bg-white text-primary"
-                              : "text-secondary hover:bg-highlight/30 hover:text-secondary"
-                          }`}
-                        >
-                          <Icon
-                            className={`h-4 w-4 ${
-                              isActive ? "text-primary" : "text-muted-foreground group-hover:text-secondary"
+                        {hasRoute ? (
+                          <Link
+                            to="/danh-muc/$slug"
+                            params={{ slug: cat.slug! }}
+                            onMouseEnter={() => setActiveCat(cat.label)}
+                            className={`group flex w-full items-center gap-3 px-5 py-3 text-left text-sm font-semibold transition-colors ${
+                              isActive
+                                ? "bg-white text-primary"
+                                : "text-secondary hover:bg-highlight/30 hover:text-secondary"
                             }`}
-                          />
-                          <span className="flex-1">{cat.label}</span>
-                          <ChevronRight
-                            className={`h-3.5 w-3.5 ${
-                              isActive ? "text-primary" : "text-muted-foreground"
+                          >
+                            <Icon
+                              className={`h-4 w-4 ${
+                                isActive
+                                  ? "text-primary"
+                                  : "text-muted-foreground group-hover:text-secondary"
+                              }`}
+                            />
+                            <span className="flex-1">{cat.label}</span>
+                            <ChevronRight
+                              className={`h-3.5 w-3.5 ${
+                                isActive ? "text-primary" : "text-muted-foreground"
+                              }`}
+                            />
+                          </Link>
+                        ) : (
+                          <button
+                            type="button"
+                            onMouseEnter={() => setActiveCat(cat.label)}
+                            className={`group flex w-full items-center gap-3 px-5 py-3 text-left text-sm font-semibold transition-colors ${
+                              isActive
+                                ? "bg-white text-primary"
+                                : "text-secondary hover:bg-highlight/30 hover:text-secondary"
                             }`}
-                          />
-                        </button>
+                          >
+                            <Icon
+                              className={`h-4 w-4 ${
+                                isActive
+                                  ? "text-primary"
+                                  : "text-muted-foreground group-hover:text-secondary"
+                              }`}
+                            />
+                            <span className="flex-1">{cat.label}</span>
+                            <ChevronRight
+                              className={`h-3.5 w-3.5 ${
+                                isActive ? "text-primary" : "text-muted-foreground"
+                              }`}
+                            />
+                          </button>
+                        )}
                       </li>
                     );
                   })}
@@ -435,8 +490,7 @@ export function Header() {
                       {activeCategory.label}
                     </h3>
                     <Link
-                      to="/"
-                      hash="products"
+                      to="/danh-muc"
                       className="text-xs font-semibold uppercase tracking-wider text-primary transition-colors hover:text-highlight"
                     >
                       Xem tất cả →
@@ -451,12 +505,22 @@ export function Header() {
                         <ul className="space-y-2">
                           {g.items.map((it) => (
                             <li key={it}>
-                              <a
-                                href="#products"
-                                className="block text-sm text-secondary transition-colors hover:text-highlight hover:translate-x-0.5 transform duration-150"
-                              >
-                                {it}
-                              </a>
+                              {activeCategoryRouteExists ? (
+                                <Link
+                                  to="/danh-muc/$slug"
+                                  params={{ slug: activeCategory.slug! }}
+                                  className="block text-sm text-secondary transition-colors hover:text-highlight hover:translate-x-0.5 transform duration-150"
+                                >
+                                  {it}
+                                </Link>
+                              ) : (
+                                <Link
+                                  to="/danh-muc"
+                                  className="block text-sm text-secondary transition-colors hover:text-highlight hover:translate-x-0.5 transform duration-150"
+                                >
+                                  {it}
+                                </Link>
+                              )}
                             </li>
                           ))}
                         </ul>
