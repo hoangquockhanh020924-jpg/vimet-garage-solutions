@@ -27,7 +27,12 @@ function addToCart(p: Product, addItem: ReturnType<typeof useCart>["addItem"]) {
   });
 }
 
+type DanhMucSearch = { q?: string };
+
 export const Route = createFileRoute("/danh-muc/")({
+  validateSearch: (search: Record<string, unknown>): DanhMucSearch => ({
+    q: typeof search.q === "string" && search.q.trim() ? search.q : undefined,
+  }),
   head: () => ({
     meta: [
       { title: "Tất cả sản phẩm — Vimet" },
@@ -63,6 +68,7 @@ const SORT_OPTIONS = [
 
 
 function AllProductsPage() {
+  const { q } = Route.useSearch();
   const [view, setView] = useState<"grid" | "list">("grid");
   const [sort, setSort] = useState<(typeof SORT_OPTIONS)[number]["id"]>("popular");
   const [priceRange, setPriceRange] = useState<(typeof PRICE_RANGES)[number]["id"]>("all");
@@ -77,6 +83,17 @@ function AllProductsPage() {
 
   const filtered = useMemo(() => {
     let list = [...items];
+
+    if (q) {
+      const term = q.toLowerCase();
+      list = list.filter(
+        (p) =>
+          p.name.toLowerCase().includes(term) ||
+          p.code.toLowerCase().includes(term) ||
+          p.brand.toLowerCase().includes(term) ||
+          p.category.toLowerCase().includes(term),
+      );
+    }
 
     if (selectedBrands.length > 0) {
       list = list.filter((p) => selectedBrands.includes(p.brand));
@@ -98,7 +115,7 @@ function AllProductsPage() {
     if (sort === "rating") list.sort((a, b) => b.rating - a.rating);
 
     return list;
-  }, [items, selectedBrands, priceRange, sort]);
+  }, [items, q, selectedBrands, priceRange, sort]);
 
   const toggleBrand = (b: string) => {
     setSelectedBrands((prev) =>
@@ -121,6 +138,24 @@ function AllProductsPage() {
           <span className="font-semibold text-secondary">Tất cả sản phẩm</span>
         </div>
       </div>
+
+      {q && (
+        <div className="border-b border-border bg-white">
+          <div className="container-prose flex flex-wrap items-center justify-between gap-3 py-4">
+            <div className="text-sm">
+              <span className="text-muted-foreground">Kết quả tìm kiếm cho</span>{" "}
+              <span className="font-bold text-secondary">"{q}"</span>{" "}
+              <span className="text-muted-foreground">— {filtered.length} sản phẩm</span>
+            </div>
+            <Link
+              to="/danh-muc"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-white px-3 py-1.5 text-xs font-semibold text-secondary hover:border-highlight hover:bg-highlight"
+            >
+              Xóa tìm kiếm
+            </Link>
+          </div>
+        </div>
+      )}
 
       {/* Main layout */}
       <section className="py-8">
