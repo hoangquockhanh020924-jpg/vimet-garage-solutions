@@ -25,6 +25,7 @@ import { Link } from "@tanstack/react-router";
 import { images } from "@/lib/images";
 import { formatPrice, useCart } from "@/lib/cart";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { SearchBox } from "@/components/site/SearchBox";
 
 const navItems = [
   { label: "Trang chủ", to: "/" as const },
@@ -245,17 +246,7 @@ export function Header() {
 
           {/* Search */}
           <div className="hidden lg:flex flex-1 max-w-xl mx-4">
-            <div className="group relative w-full">
-              <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
-              <input
-                type="search"
-                placeholder="Tìm cầu nâng, máy chẩn đoán, máy ra vào lốp..."
-                className="w-full rounded-full border-2 border-primary/20 bg-white pl-11 pr-28 py-2.5 text-sm placeholder:text-muted-foreground transition focus:border-highlight focus:outline-none focus:ring-4 focus:ring-highlight/25"
-              />
-              <button className="absolute right-1.5 top-1/2 -translate-y-1/2 rounded-full bg-primary px-5 py-1.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-highlight hover:text-secondary">
-                Tìm
-              </button>
-            </div>
+            <SearchBox variant="desktop" />
           </div>
 
           {/* Hotline */}
