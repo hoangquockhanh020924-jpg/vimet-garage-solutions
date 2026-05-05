@@ -368,8 +368,9 @@ function NewsPage() {
                       onClick={() => {
                         setQuery(tag);
                         setVisible(PAGE_SIZE);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
                       }}
-                      className="rounded-full border border-border bg-white px-3 py-1 text-xs font-medium text-secondary transition-all hover:border-primary hover:bg-primary hover:text-primary-foreground"
+                      className="rounded-full border border-primary bg-white px-3 py-1 text-xs font-medium text-secondary transition-all hover:bg-primary hover:text-primary shadow-sm hover:shadow-md"
                     >
                       #{tag}
                     </button>

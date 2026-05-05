@@ -534,21 +534,42 @@ export function Header() {
 
           {/* Nav links — phân bố đều, căn giữa */}
           <ul className="flex flex-1 items-stretch justify-between border-l border-white/15">
-            {navItems.map((item) => (
-              <li key={item.label} className="flex-1">
-                <Link
-                  to={item.to}
-                  {...(item.hash ? { hash: item.hash } : {})}
-                  className="group relative flex h-full items-center justify-center whitespace-nowrap px-2 py-3 text-[13px] font-medium text-white transition-colors hover:text-highlight"
-                >
-                  <span className="relative">
-                    {item.label}
-                    {/* Animated underline — yellow on hover */}
-                    <span className="pointer-events-none absolute -bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-highlight transition-all duration-300 ease-out group-hover:w-full" />
-                  </span>
-                </Link>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const pathname = typeof window !== "undefined" ? window.location.pathname : "";
+              const hash = typeof window !== "undefined" ? window.location.hash : "";
+              const isActive = item.hash
+                ? pathname === item.to && hash === `#${item.hash}`
+                : item.to === "/"
+                ? pathname === "/" && !hash
+                : pathname.startsWith(item.to);
+              return (
+                <li key={item.label} className="flex-1">
+                  <Link
+                    to={item.to}
+                    {...(item.hash ? { hash: item.hash } : {})}
+                    onClick={() => {
+                      if (!item.hash && typeof window !== "undefined" && window.location.hash) {
+                        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+                      }
+                    }}
+                    className={`group relative flex h-full items-center justify-center whitespace-nowrap px-2 py-3 text-[13px] font-medium transition-colors ${
+                      isActive ? "text-highlight" : "text-white"
+                    } hover:text-highlight`}
+                  >
+                    <span className="relative">
+                      {item.label}
+                      <span
+                        className={`${
+                          isActive
+                            ? "absolute -bottom-1 left-0 w-full translate-x-0"
+                            : "absolute -bottom-1 left-1/2 w-0 -translate-x-1/2"
+                        } pointer-events-none h-0.5 bg-highlight transition-all duration-300 ease-out group-hover:w-full`}
+                      />
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </nav>
@@ -592,18 +613,34 @@ export function Header() {
             </details>
 
             <ul className="flex flex-col divide-y divide-border">
-              {navItems.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    to={item.to}
-                    {...(item.hash ? { hash: item.hash } : {})}
-                    onClick={() => setOpen(false)}
-                    className="block py-3 text-sm font-semibold text-secondary transition-colors hover:text-primary"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {navItems.map((item) => {
+                const pathname = typeof window !== "undefined" ? window.location.pathname : "";
+                const hash = typeof window !== "undefined" ? window.location.hash : "";
+                const isActive = item.hash
+                  ? pathname === item.to && hash === `#${item.hash}`
+                  : item.to === "/"
+                  ? pathname === "/" && !hash
+                  : pathname.startsWith(item.to);
+                return (
+                  <li key={item.label}>
+                    <Link
+                      to={item.to}
+                      {...(item.hash ? { hash: item.hash } : {})}
+                      onClick={() => {
+                        setOpen(false);
+                        if (!item.hash && typeof window !== "undefined" && window.location.hash) {
+                          window.history.replaceState(null, "", window.location.pathname + window.location.search);
+                        }
+                      }}
+                      className={`block py-3 text-sm font-semibold transition-colors ${
+                        isActive ? "text-primary" : "text-secondary"
+                      } hover:text-primary`}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

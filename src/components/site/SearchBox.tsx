@@ -245,7 +245,7 @@ export function SearchBox({ variant = "desktop", onNavigate }: Props) {
                         key={r}
                         type="button"
                         onClick={() => submitQuery(r)}
-                        className="rounded-full border border-border bg-neutral px-3 py-1 text-xs text-secondary hover:border-highlight hover:bg-highlight"
+                        className="rounded-full border border-border bg-neutral px-3 py-1 text-xs text-secondary hover:border-highlight hover:bg-highlight hover:text-primary transition-colors"
                       >
                         {r}
                       </button>
@@ -267,7 +267,7 @@ export function SearchBox({ variant = "desktop", onNavigate }: Props) {
                       key={t}
                       type="button"
                       onClick={() => submitQuery(t)}
-                      className="rounded-full border border-border bg-white px-3 py-1 text-xs text-secondary hover:border-highlight hover:bg-highlight"
+                      className="rounded-full border border-border bg-white px-3 py-1 text-xs text-secondary hover:border-highlight hover:bg-highlight hover:text-primary transition-colors"
                     >
                       {t}
                     </button>
