@@ -104,7 +104,7 @@ function CategoryDetailPage() {
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
 
   const brands = useMemo(() => {
-    const set = new Set(items.map((p) => p.brand));
+    const set = new Set((items as Product[]).map((p: Product) => p.brand));
     return Array.from(set);
   }, [items]);
 
@@ -282,7 +282,7 @@ function CategoryDetailPage() {
                   Thương hiệu
                 </h3>
                 <div className="space-y-2">
-                  {brands.map((b) => (
+                  {(brands as string[]).map((b: string) => (
                     <label
                       key={b}
                       className="flex items-center gap-3 cursor-pointer group"
