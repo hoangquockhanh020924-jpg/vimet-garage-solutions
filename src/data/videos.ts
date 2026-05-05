@@ -1,5 +1,3 @@
-import type { } from "react";
-
 export type VideoItem = {
   slug: string;
   title: string;
