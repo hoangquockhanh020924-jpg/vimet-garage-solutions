@@ -144,7 +144,7 @@ function ProductDetailPage() {
                 </div>
               </div>
               <div className="mt-4 grid grid-cols-4 gap-3">
-                {product.gallery.map((img, i) => (
+                {product.gallery.map((img: string, i: number) => (
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
@@ -357,7 +357,7 @@ function ProductDetailPage() {
               <div className="bg-white rounded-2xl border border-border p-6">
                 <h3 className="font-display font-bold text-secondary mb-4">Sản phẩm mới</h3>
                 <ul className="space-y-4">
-                  {related.slice(0, 3).map((r) => (
+                  {related.slice(0, 3).map((r: Product) => (
                     <li key={r.slug}>
                       <Link
                         to="/san-pham/$slug"
@@ -406,7 +406,7 @@ function ProductDetailPage() {
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {related.map((p) => (
+            {related.map((p: Product) => (
               <Link
                 key={p.slug}
                 to="/san-pham/$slug"
