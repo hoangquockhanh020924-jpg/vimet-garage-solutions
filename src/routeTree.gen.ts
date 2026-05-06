@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as YeuThichRouteImport } from './routes/yeu-thich'
 import { Route as VideoRouteImport } from './routes/video'
 import { Route as TuyenDungRouteImport } from './routes/tuyen-dung'
 import { Route as TinTucRouteImport } from './routes/tin-tuc'
@@ -22,6 +23,11 @@ import { Route as DanhMucIndexRouteImport } from './routes/danh-muc.index'
 import { Route as SanPhamSlugRouteImport } from './routes/san-pham.$slug'
 import { Route as DanhMucSlugRouteImport } from './routes/danh-muc.$slug'
 
+const YeuThichRoute = YeuThichRouteImport.update({
+  id: '/yeu-thich',
+  path: '/yeu-thich',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VideoRoute = VideoRouteImport.update({
   id: '/video',
   path: '/video',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/tin-tuc': typeof TinTucRoute
   '/tuyen-dung': typeof TuyenDungRoute
   '/video': typeof VideoRoute
+  '/yeu-thich': typeof YeuThichRoute
   '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
   '/danh-muc/': typeof DanhMucIndexRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/tin-tuc': typeof TinTucRoute
   '/tuyen-dung': typeof TuyenDungRoute
   '/video': typeof VideoRoute
+  '/yeu-thich': typeof YeuThichRoute
   '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
   '/danh-muc': typeof DanhMucIndexRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/tin-tuc': typeof TinTucRoute
   '/tuyen-dung': typeof TuyenDungRoute
   '/video': typeof VideoRoute
+  '/yeu-thich': typeof YeuThichRoute
   '/danh-muc/$slug': typeof DanhMucSlugRoute
   '/san-pham/$slug': typeof SanPhamSlugRoute
   '/danh-muc/': typeof DanhMucIndexRoute
@@ -138,6 +147,7 @@ export interface FileRouteTypes {
     | '/tin-tuc'
     | '/tuyen-dung'
     | '/video'
+    | '/yeu-thich'
     | '/danh-muc/$slug'
     | '/san-pham/$slug'
     | '/danh-muc/'
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/tin-tuc'
     | '/tuyen-dung'
     | '/video'
+    | '/yeu-thich'
     | '/danh-muc/$slug'
     | '/san-pham/$slug'
     | '/danh-muc'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/tin-tuc'
     | '/tuyen-dung'
     | '/video'
+    | '/yeu-thich'
     | '/danh-muc/$slug'
     | '/san-pham/$slug'
     | '/danh-muc/'
@@ -181,6 +193,7 @@ export interface RootRouteChildren {
   TinTucRoute: typeof TinTucRoute
   TuyenDungRoute: typeof TuyenDungRoute
   VideoRoute: typeof VideoRoute
+  YeuThichRoute: typeof YeuThichRoute
   DanhMucSlugRoute: typeof DanhMucSlugRoute
   SanPhamSlugRoute: typeof SanPhamSlugRoute
   DanhMucIndexRoute: typeof DanhMucIndexRoute
@@ -188,6 +201,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/yeu-thich': {
+      id: '/yeu-thich'
+      path: '/yeu-thich'
+      fullPath: '/yeu-thich'
+      preLoaderRoute: typeof YeuThichRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/video': {
       id: '/video'
       path: '/video'
@@ -285,6 +305,7 @@ const rootRouteChildren: RootRouteChildren = {
   TinTucRoute: TinTucRoute,
   TuyenDungRoute: TuyenDungRoute,
   VideoRoute: VideoRoute,
+  YeuThichRoute: YeuThichRoute,
   DanhMucSlugRoute: DanhMucSlugRoute,
   SanPhamSlugRoute: SanPhamSlugRoute,
   DanhMucIndexRoute: DanhMucIndexRoute,
