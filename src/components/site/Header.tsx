@@ -36,7 +36,6 @@ const navItems = [
   { label: "Sản phẩm", to: "/danh-muc" as const },
   { label: "Hãng sản xuất", to: "/" as const, hash: "brands" },
   { label: "Tin tức", to: "/tin-tuc" as const },
-  { label: "Yêu thích", to: "/yeu-thich" as const },
   { label: "Tuyển dụng", to: "/tuyen-dung" as const },
   { label: "Catalog", to: "/catalog" as const },
   { label: "Video", to: "/video" as const },
