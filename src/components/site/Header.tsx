@@ -24,6 +24,8 @@ import {
 import { Link } from "@tanstack/react-router";
 import { images } from "@/lib/images";
 import { formatPrice, useCart } from "@/lib/cart";
+import { useFavorites } from "@/lib/favorites";
+import { Heart } from "lucide-react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { SearchBox } from "@/components/site/SearchBox";
 import { categoryList } from "@/data/categories";
@@ -34,6 +36,7 @@ const navItems = [
   { label: "Sản phẩm", to: "/danh-muc" as const },
   { label: "Hãng sản xuất", to: "/" as const, hash: "brands" },
   { label: "Tin tức", to: "/tin-tuc" as const },
+  { label: "Yêu thích", to: "/yeu-thich" as const },
   { label: "Tuyển dụng", to: "/tuyen-dung" as const },
   { label: "Catalog", to: "/catalog" as const },
   { label: "Video", to: "/video" as const },
@@ -191,6 +194,7 @@ export function Header() {
   const [activeCat, setActiveCat] = useState<string>(categories[0].label);
   const [megaOpen, setMegaOpen] = useState(false);
   const { count, items, subtotal, removeItem } = useCart();
+  const { count: favCount } = useFavorites();
 
   const activeCategory = categories.find((c) => c.label === activeCat) ?? categories[0];
   const activeCategoryRouteExists = Boolean(
@@ -277,6 +281,20 @@ export function Header() {
               <span className="block text-sm font-bold">028 388 88 388</span>
             </span>
           </a>
+
+          {/* Favorites */}
+          <Link
+            to="/yeu-thich"
+            aria-label="Sản phẩm yêu thích"
+            className="relative hidden sm:flex h-11 w-11 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-highlight hover:text-secondary"
+          >
+            <Heart className={`h-4 w-4 ${favCount > 0 ? "fill-current" : ""}`} />
+            {favCount > 0 && (
+              <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary px-1 text-[10px] font-bold text-white border-2 border-white">
+                {favCount}
+              </span>
+            )}
+          </Link>
 
           {/* Cart */}
           <HoverCard openDelay={120} closeDelay={120}>
