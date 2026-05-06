@@ -29,6 +29,8 @@ import { Heart } from "lucide-react";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { SearchBox } from "@/components/site/SearchBox";
 import { categoryList } from "@/data/categories";
+import { products } from "@/data/products";
+import { parsePrice } from "@/lib/cart";
 
 const navItems = [
   { label: "Trang chủ", to: "/" as const },
@@ -192,8 +194,9 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [activeCat, setActiveCat] = useState<string>(categories[0].label);
   const [megaOpen, setMegaOpen] = useState(false);
-  const { count, items, subtotal, removeItem } = useCart();
-  const { count: favCount } = useFavorites();
+  const { count, items, subtotal, removeItem, addItem } = useCart();
+  const { favorites, count: favCount, toggle: toggleFavorite } = useFavorites();
+  const favoriteProducts = products.filter((p) => favorites.includes(p.slug));
 
   const activeCategory = categories.find((c) => c.label === activeCat) ?? categories[0];
   const activeCategoryRouteExists = Boolean(
