@@ -200,7 +200,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full shadow-[0_2px_12px_-4px_rgba(207,46,46,0.25)]">
       {/* Top utility strip — deep red */}
-      <div className="hidden md:block bg-primary-dark text-white text-xs">
+      {/* <div className="hidden md:block bg-primary-dark text-white text-xs">
         <div className="container-prose flex items-center justify-between py-2">
           <div className="flex items-center gap-5">
             <span className="inline-flex items-center gap-1.5">
@@ -235,7 +235,7 @@ export function Header() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main bar — white */}
       <div className="bg-white border-b-2 border-primary/10">
