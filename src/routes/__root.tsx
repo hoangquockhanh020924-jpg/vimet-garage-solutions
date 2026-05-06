@@ -1,5 +1,6 @@
 import { Outlet, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { CartProvider } from "@/lib/cart";
+import { FavoritesProvider } from "@/lib/favorites";
 import { Toaster } from "@/components/ui/sonner";
 
 import appCss from "../styles.css?url";
@@ -74,8 +75,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
     <CartProvider>
-      <Outlet />
-      <Toaster position="bottom-right" richColors closeButton />
+      <FavoritesProvider>
+        <Outlet />
+        <Toaster position="bottom-right" richColors closeButton />
+      </FavoritesProvider>
     </CartProvider>
   );
 }

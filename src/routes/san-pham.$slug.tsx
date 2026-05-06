@@ -22,6 +22,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { getProductBySlug, getRelatedProducts, type Product } from "@/data/products";
 import { useCart, parsePrice } from "@/lib/cart";
+import { useFavorites } from "@/lib/favorites";
 
 export const Route = createFileRoute("/san-pham/$slug")({
   loader: ({ params }) => {
@@ -79,6 +80,8 @@ function ProductDetailPage() {
   const [qty, setQty] = useState(1);
   const [tab, setTab] = useState<"specs" | "accessories" | "warranty" | "reviews">("specs");
   const { addItem } = useCart();
+  const { isFavorite, toggle: toggleFavorite } = useFavorites();
+  const liked = isFavorite(product.slug);
   const navigate = useNavigate();
 
   const handleAdd = () => {
@@ -135,10 +138,33 @@ function ProductDetailPage() {
                   {product.badge}
                 </span>
                 <div className="absolute top-4 right-4 flex flex-col gap-2">
-                  <button className="h-9 w-9 flex items-center justify-center rounded-full bg-white/95 text-secondary hover:bg-primary hover:text-white transition-colors shadow-md">
-                    <Heart className="h-4 w-4" />
+                  <button
+                    type="button"
+                    aria-label={liked ? "Bỏ yêu thích" : "Thêm vào yêu thích"}
+                    aria-pressed={liked}
+                    onClick={() => toggleFavorite(product.slug, product.name)}
+                    className={`h-9 w-9 flex items-center justify-center rounded-full shadow-md transition-colors ${
+                      liked
+                        ? "bg-primary text-white"
+                        : "bg-white/95 text-secondary hover:bg-primary hover:text-white"
+                    }`}
+                  >
+                    <Heart className={`h-4 w-4 ${liked ? "fill-current" : ""}`} />
                   </button>
-                  <button className="h-9 w-9 flex items-center justify-center rounded-full bg-white/95 text-secondary hover:bg-primary hover:text-white transition-colors shadow-md">
+                  <button
+                    type="button"
+                    aria-label="Chia sẻ"
+                    onClick={() => {
+                      if (typeof window === "undefined") return;
+                      const url = window.location.href;
+                      if (navigator.share) {
+                        navigator.share({ title: product.name, url }).catch(() => {});
+                      } else {
+                        navigator.clipboard?.writeText(url);
+                      }
+                    }}
+                    className="h-9 w-9 flex items-center justify-center rounded-full bg-white/95 text-secondary hover:bg-primary hover:text-white transition-colors shadow-md"
+                  >
                     <Share2 className="h-4 w-4" />
                   </button>
                 </div>
