@@ -16,16 +16,6 @@ import { categoryList } from "@/data/categories";
 import { products } from "@/data/products";
 import { parsePrice } from "@/lib/cart";
 
-function addToCart(p: Product, addItem: ReturnType<typeof useCart>["addItem"]) {
-  addItem({
-    slug: p.slug,
-    name: p.name,
-    code: p.code,
-    img: p.img,
-    price: parsePrice(p.price),
-    priceLabel: p.price,
-  });
-}
 
 type DanhMucSearch = { q?: string };
 
