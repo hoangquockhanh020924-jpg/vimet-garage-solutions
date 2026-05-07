@@ -89,18 +89,22 @@ function CartPage() {
                           <Link
                             to="/san-pham/$slug"
                             params={{ slug: item.slug }}
-                            className="h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-neutral border border-border"
+                            className="group h-24 w-24 shrink-0 overflow-hidden rounded-lg bg-white border border-border"
                           >
-                            <img src={item.img} alt={item.name} className="h-full w-full object-contain object-center p-0 md:p-1" />
+                            <img
+                              src={item.img}
+                              alt={item.name}
+                              className="h-full w-full object-contain object-center p-1 transition-transform duration-500 group-hover:scale-105"
+                            />
                           </Link>
                           <div className="min-w-0">
-                            <div className="text-[11px] font-bold text-primary uppercase tracking-wider">
+                            <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                               Mã: {item.code}
                             </div>
                             <Link
                               to="/san-pham/$slug"
                               params={{ slug: item.slug }}
-                              className="block font-display text-sm font-bold text-secondary hover:text-primary line-clamp-2"
+                              className="mt-1 block font-display text-sm font-bold text-secondary hover:text-primary line-clamp-2 leading-snug"
                             >
                               {item.name}
                             </Link>
