@@ -42,13 +42,13 @@ export function Products() {
               <Link
                 to="/san-pham/$slug"
                 params={{ slug: p.slug }}
-                className="relative aspect-[4/3] overflow-hidden bg-neutral block"
+                className="relative aspect-[4/3] overflow-hidden bg-white block"
               >
                 <img
                   src={p.img}
                   alt={p.name}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-contain object-center p-0 md:p-1 transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className="absolute top-3 left-3 rounded-md bg-primary px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
                   {p.badge}
@@ -72,7 +72,6 @@ export function Products() {
                 >
                   {p.name}
                 </Link>
-                <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{p.spec}</p>
 
                 <div className="mt-4 flex items-baseline gap-2">
                   <span className="font-display text-lg font-bold text-primary">{p.price}</span>

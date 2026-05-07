@@ -303,7 +303,7 @@ function CheckoutPage() {
                     {items.map((item) => (
                       <li key={item.slug} className="flex gap-3 px-6 py-4">
                         <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md bg-neutral border border-border">
-                          <img src={item.img} alt={item.name} className="h-full w-full object-cover" />
+                          <img src={item.img} alt={item.name} className="h-full w-full object-contain object-center p-0 md:p-1" />
                           <span className="absolute -top-1 -right-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1 text-[10px] font-bold text-white">
                             {item.qty}
                           </span>

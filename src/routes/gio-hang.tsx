@@ -91,7 +91,7 @@ function CartPage() {
                             params={{ slug: item.slug }}
                             className="h-20 w-20 shrink-0 overflow-hidden rounded-lg bg-neutral border border-border"
                           >
-                            <img src={item.img} alt={item.name} className="h-full w-full object-cover" />
+                            <img src={item.img} alt={item.name} className="h-full w-full object-contain object-center p-0 md:p-1" />
                           </Link>
                           <div className="min-w-0">
                             <div className="text-[11px] font-bold text-primary uppercase tracking-wider">
