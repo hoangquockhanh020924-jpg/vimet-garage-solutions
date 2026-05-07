@@ -9,7 +9,9 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "api": "json-server db.json --port 3001",
+    "sync": "bun run scripts/sync-data.ts"
   },
   "dependencies": {
     "@cloudflare/vite-plugin": "^1.25.5",
