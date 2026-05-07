@@ -3,9 +3,6 @@ import { useState, useMemo } from "react";
 import {
   ChevronRight,
   Home,
-  ShoppingCart,
-  Eye,
-  Star,
   Truck,
   Shield,
   Headphones,
