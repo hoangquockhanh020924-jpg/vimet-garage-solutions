@@ -11,10 +11,10 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { categoryList, productCategoryToSlug } from "@/data/categories";
-import { products, type Product } from "@/data/products";
-import { ShoppingCart, Eye, Star } from "lucide-react";
-import { useCart, parsePrice } from "@/lib/cart";
+import { ProductCard as ProductGridCard, ProductListCard } from "@/components/site/ProductCard";
+import { categoryList } from "@/data/categories";
+import { products } from "@/data/products";
+import { parsePrice } from "@/lib/cart";
 
 function addToCart(p: Product, addItem: ReturnType<typeof useCart>["addItem"]) {
   addItem({
