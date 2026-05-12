@@ -4,7 +4,9 @@ import { PlayCircle, MonitorPlay, Search, ExternalLink, X, Youtube } from "lucid
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-import { videos, videoBrands, type VideoItem } from "@/data/videos";
+import { videos, type VideoItem } from "@/data/videos";
+
+const videoBrands: string[] = ["Tất cả", ...Array.from(new Set(videos.map((v) => v.brand)))];
 
 export const Route = createFileRoute("/video")({
   head: () => ({
