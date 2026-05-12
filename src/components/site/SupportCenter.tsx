@@ -124,7 +124,7 @@ export function SupportCenter() {
                       href={`https://zalo.me/${c.phone.replace(/\s+/g, "")}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                      className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-xs font-bold text-blue-600 transition-colors hover:bg-blue-500 hover:text-white"
                     >
                       Zalo
                     </a>
