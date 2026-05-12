@@ -14,7 +14,9 @@ import {
 } from "lucide-react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { newsArticles, newsCategories, type NewsArticle } from "@/data/news";
+import { newsArticles, type NewsArticle } from "@/data/news";
+
+const newsCategories: string[] = ["Tất cả", ...Array.from(new Set(newsArticles.map((a) => a.category)))];
 
 export const Route = createFileRoute("/tin-tuc")({
   head: () => ({
