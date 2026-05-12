@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/site/Header";
 import { Contact } from "@/components/site/Contact";
+import { SupportCenter } from "@/components/site/SupportCenter";
 import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/lien-he")({
@@ -39,6 +40,7 @@ function ContactPage() {
         </section>
 
         <Contact />
+        <SupportCenter />
       </main>
       <Footer />
     </div>
