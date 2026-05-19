@@ -22,6 +22,7 @@ function Index() {
         <Hero />
         <Categories />
         <Products />
+        <HotProducts />
         <About />
         <WhyUs />
         <Brands />
