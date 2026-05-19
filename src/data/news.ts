@@ -12,6 +12,7 @@ export type NewsArticle = {
   href: string;
   tags?: string[];
   featured?: boolean;
+  id?: string;
 };
 
 export const newsArticles: NewsArticle[] = [

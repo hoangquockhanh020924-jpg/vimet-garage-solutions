@@ -7,6 +7,7 @@ export type VideoItem = {
   youtubeId: string;
   thumbnail: string;
   sourceUrl: string;
+  id?: string;
 };
 
 export const videos: VideoItem[] = [

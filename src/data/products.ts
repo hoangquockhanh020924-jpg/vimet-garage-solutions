@@ -20,6 +20,7 @@ export type Product = {
   accessories: { name: string; qty: string }[];
   warranty: string[];
   reviews: { name: string; role: string; rating: number; comment: string; date: string }[];
+  id?: string;
 };
 
 export const products: Product[] = [
