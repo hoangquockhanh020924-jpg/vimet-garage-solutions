@@ -17,7 +17,8 @@ export const videos: VideoItem[] = [
     "category": "Súng rive",
     "youtubeId": "KFvRntD1dXE",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/10/GESIPA-VIỆT-NAM-Hộp-dụng-cụ-kìm-tán-đinh-rive-Gesipa-1435457-NIETBOX-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/gesipa-viet-nam-hop-dung-cu-kim-tan-dinh-rive-gesipa-1435457-nietbox/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/gesipa-viet-nam-hop-dung-cu-kim-tan-dinh-rive-gesipa-1435457-nietbox/",
+    "id": "YcNbBWwWeAM"
   },
   {
     "slug": "gesipa-viet-nam-sung-rut-rive-bang-pin-firefox-2",
@@ -26,7 +27,8 @@ export const videos: VideoItem[] = [
     "category": "Súng rive",
     "youtubeId": "UD-aUpPExmg",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/10/GESIPA-VIỆT-NAM-Súng-rút-rive-bằng-Pin-FIREFOX®-2-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/gesipa-viet-nam-sung-rut-rive-bang-pin-firefox-2/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/gesipa-viet-nam-sung-rut-rive-bang-pin-firefox-2/",
+    "id": "5SXar1XbW_4"
   },
   {
     "slug": "toptul-viet-nam-bo-dau-tuyp-3-8-35-chi-tiet-hop-nhua-metric-sae",
@@ -35,7 +37,8 @@ export const videos: VideoItem[] = [
     "category": "Dụng cụ cầm tay",
     "youtubeId": "SjqvHnE4iBc",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/10/TOPTUL-VIỆT-NAM-Bộ-đầu-tuýp-38-35-chi-tiết-hộp-nhựa-METRIC-SAE-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo-dau-tuyp-3-8-35-chi-tiet-hop-nhua-metric-sae/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo-dau-tuyp-3-8-35-chi-tiet-hop-nhua-metric-sae/",
+    "id": "77vwV4DTtPE"
   },
   {
     "slug": "toptul-viet-nam-bo%cc%a3-co-le-vong-mie%cc%a3ng-tu%cc%a3-do%cc%a3ng-toptul-gaai1003",
@@ -44,7 +47,8 @@ export const videos: VideoItem[] = [
     "category": "Khác",
     "youtubeId": "ZIOAl5iOMkM",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/10/TOPTUL-VIỆT-NAM-Bộ-Cờ-Lê-Vòng-Miệng-Tự-Động-TOPTUL-GAAI1003-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo%cc%a3-co-le-vong-mie%cc%a3ng-tu%cc%a3-do%cc%a3ng-toptul-gaai1003/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo%cc%a3-co-le-vong-mie%cc%a3ng-tu%cc%a3-do%cc%a3ng-toptul-gaai1003/",
+    "id": "brn8JpVgpFs"
   },
   {
     "slug": "toptul-viet-nam-bo-tuyp-dau-3-4-21-chi-tiet-hop-nhua-toptul-gcai2102",
@@ -53,7 +57,8 @@ export const videos: VideoItem[] = [
     "category": "Dụng cụ cầm tay",
     "youtubeId": "7YatV60vcNc",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/10/TOPTUL-VIỆT-NAM-Bộ-tuýp-đầu-34-21-chi-tiết-hộp-nhựa-TOPTUL-GCAI2102-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo-tuyp-dau-3-4-21-chi-tiet-hop-nhua-toptul-gcai2102/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo-tuyp-dau-3-4-21-chi-tiet-hop-nhua-toptul-gcai2102/",
+    "id": "BRJ5spybUiM"
   },
   {
     "slug": "toptul-viet-nam-bo-dung-cu-cam-tay-1-4-1-2-150pcs-toptul-gcai150r",
@@ -62,7 +67,8 @@ export const videos: VideoItem[] = [
     "category": "Khác",
     "youtubeId": "1QwPMLCXcdo",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/10/TOPTUL-VIỆT-NAM-Bộ-dụng-cụ-cầm-tay-14-12-150PCS-TOPTUL-GCAI150R-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo-dung-cu-cam-tay-1-4-1-2-150pcs-toptul-gcai150r/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo-dung-cu-cam-tay-1-4-1-2-150pcs-toptul-gcai150r/",
+    "id": "OWXOfxTA1Wo"
   },
   {
     "slug": "toptul-viet-nam-bo-dung-cu-cao-xich-toptul-jgai1304",
@@ -71,7 +77,8 @@ export const videos: VideoItem[] = [
     "category": "Dụng cụ cầm tay",
     "youtubeId": "60vxiUyLltg",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/10/TOPTUL-VIỆT-NAM-Bộ-Dụng-Cụ-Cảo-Xích-Toptul-JGAI1304-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo-dung-cu-cao-xich-toptul-jgai1304/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo-dung-cu-cao-xich-toptul-jgai1304/",
+    "id": "5v2plGKIfoY"
   },
   {
     "slug": "toptul-viet-nam-bo-taro-ren-40pcs-toptul-jgai4001",
@@ -80,7 +87,8 @@ export const videos: VideoItem[] = [
     "category": "Dụng cụ cầm tay",
     "youtubeId": "oVr4lUxUc08",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/10/TOPTUL-VIỆT-NAM-Bộ-Tarô-Ren-40PCS-TOPTUL-JGAI4001-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo-taro-ren-40pcs-toptul-jgai4001/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo-taro-ren-40pcs-toptul-jgai4001/",
+    "id": "V-FMYKkqCNY"
   },
   {
     "slug": "toptul-viet-nam-sung-rut-rive-hay-sung-ban-rive-toptul-kara0205",
@@ -89,7 +97,8 @@ export const videos: VideoItem[] = [
     "category": "Súng rive",
     "youtubeId": "LW4cy57nAUI",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/10/TOPTUL-VIỆT-NAM-Súng-rút-rive-hay-súng-bắn-rive-TOPTUL-KARA0205-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-sung-rut-rive-hay-sung-ban-rive-toptul-kara0205/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-sung-rut-rive-hay-sung-ban-rive-toptul-kara0205/",
+    "id": "7MklmEzniaY"
   },
   {
     "slug": "toptul-viet-nam-bo%cc%a3-dau-bi-chu%cc%83-l-9-mon-toptul-gzc0903",
@@ -98,7 +107,8 @@ export const videos: VideoItem[] = [
     "category": "Khác",
     "youtubeId": "HOudFl0ZEpY",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/10/TOPTUL-VIỆT-NAM-Bộ-Đầu-Bi-Chữ-L-9-Món-TOPTUL-GZC0903-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo%cc%a3-dau-bi-chu%cc%83-l-9-mon-toptul-gzc0903/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-bo%cc%a3-dau-bi-chu%cc%83-l-9-mon-toptul-gzc0903/",
+    "id": "ThAB9pkPVNg"
   },
   {
     "slug": "thiet-bi-o-to-bom-hut-chan-khong-2-cap-robinair-15121a",
@@ -107,7 +117,8 @@ export const videos: VideoItem[] = [
     "category": "Thiết bị ô tô",
     "youtubeId": "Pium_pqt-uI",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/09/THIẾT-BỊ-Ô-TÔ-Bơm-Hút-Chân-Không-2-Cấp-Robinair-15121A-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/thiet-bi-o-to-bom-hut-chan-khong-2-cap-robinair-15121a/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/thiet-bi-o-to-bom-hut-chan-khong-2-cap-robinair-15121a/",
+    "id": "7HZ_Q_o5OHg"
   },
   {
     "slug": "toptul-viet-nam-sung-van-tay-ngang-3-8-kaaf1210-sung-tua-vit-bang-pin-1-4-kpdb0803",
@@ -116,6 +127,7 @@ export const videos: VideoItem[] = [
     "category": "Dụng cụ điện/khí nén",
     "youtubeId": "L0AgKEKATcA",
     "thumbnail": "https://vimet.com.vn/wp-content/uploads/2022/09/TOPTUL-VIỆT-NAM-SÚNG-VẶN-TAY-NGANG-38-KAAF1210-SÚNG-TUA-VÍT-BẰNG-PIN-14”-KPDB0803-280x180.jpg",
-    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-sung-van-tay-ngang-3-8-kaaf1210-sung-tua-vit-bang-pin-1-4-kpdb0803/"
+    "sourceUrl": "https://vimet.com.vn/video-huong-dan/toptul-viet-nam-sung-van-tay-ngang-3-8-kaaf1210-sung-tua-vit-bang-pin-1-4-kpdb0803/",
+    "id": "mkTwPcTro3Q"
   }
 ];

@@ -31,7 +31,8 @@ export const newsArticles: NewsArticle[] = [
       "Cầu nâng",
       "Bảo trì"
     ],
-    "featured": true
+    "featured": true,
+    "id": "fyMKEsbYbn8"
   },
   {
     "slug": "cau-nang-o-to-pho-bien-nhat",
@@ -49,7 +50,8 @@ export const newsArticles: NewsArticle[] = [
       "Gara",
       "Mua sắm"
     ],
-    "featured": true
+    "featured": true,
+    "id": "ow-l6VfTn3M"
   },
   {
     "slug": "may-nen-khi-bi-nong",
@@ -65,7 +67,8 @@ export const newsArticles: NewsArticle[] = [
     "tags": [
       "Máy nén khí",
       "Sửa chữa"
-    ]
+    ],
+    "id": "FRGnXk7sJes"
   },
   {
     "slug": "cau-nang-cat-keo",
@@ -81,7 +84,8 @@ export const newsArticles: NewsArticle[] = [
     "tags": [
       "Cầu nâng",
       "Cắt kéo"
-    ]
+    ],
+    "id": "2egpMVVgOxU"
   },
   {
     "slug": "quy-trinh-van-hanh-may-nen-khi",
@@ -97,7 +101,8 @@ export const newsArticles: NewsArticle[] = [
     "tags": [
       "Máy nén khí",
       "Vận hành"
-    ]
+    ],
+    "id": "zbftxOUoz5s"
   },
   {
     "slug": "nguyen-ly-hoat-dong-may-nen-khi",
@@ -113,7 +118,8 @@ export const newsArticles: NewsArticle[] = [
     "tags": [
       "Máy nén khí",
       "Kỹ thuật"
-    ]
+    ],
+    "id": "30kZkoIO47A"
   },
   {
     "slug": "cach-su-dung-may-ra-vao-lop",
@@ -129,7 +135,8 @@ export const newsArticles: NewsArticle[] = [
     "tags": [
       "Lốp xe",
       "Hướng dẫn"
-    ]
+    ],
+    "id": "ll_nZLnEsyo"
   },
   {
     "slug": "dung-cu-cam-tay-gara",
@@ -145,6 +152,7 @@ export const newsArticles: NewsArticle[] = [
     "tags": [
       "Dụng cụ",
       "Gara"
-    ]
+    ],
+    "id": "rZCTIcby2Ko"
   }
 ];

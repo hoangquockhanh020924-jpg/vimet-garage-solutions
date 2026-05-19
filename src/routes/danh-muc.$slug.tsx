@@ -28,7 +28,7 @@ export const Route = createFileRoute("/danh-muc/$slug")({
     const cat = getCategoryBySlug(params.slug);
     if (!cat) throw notFound();
     const items = products.filter(
-      (p) => productCategoryToSlug[p.category] === params.slug,
+      (p) => productCategoryToSlug[p.category] === params.slug || p.category === params.slug,
     );
     return { cat, items };
   },
