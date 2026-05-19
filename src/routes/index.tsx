@@ -3,6 +3,7 @@ import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { Categories } from "@/components/site/Categories";
 import { Products } from "@/components/site/Products";
+import { HotProducts } from "@/components/site/HotProducts";
 import { About } from "@/components/site/About";
 import { WhyUs } from "@/components/site/WhyUs";
 import { Brands } from "@/components/site/Brands";
