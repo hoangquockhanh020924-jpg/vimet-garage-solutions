@@ -10,7 +10,7 @@ export type Product = {
   img: string;
   gallery?: string[];
   brand: string;
-  origin: string;
+  origin?: string;
   rating: number;
   reviewCount: number;
   category: string;
