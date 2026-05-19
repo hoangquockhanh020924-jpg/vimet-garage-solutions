@@ -22,11 +22,11 @@ export function HotProducts() {
   return (
     <section
       id="hot-products"
-      className="relative py-20 bg-[oklch(0.93_0.08_25)]"
+      className="relative py-20 bg-[oklch(0.92_0.11_95)]"
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[oklch(0.88_0.12_25)] via-transparent to-[oklch(0.93_0.08_25)]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[oklch(0.88_0.14_95)] via-transparent to-[oklch(0.92_0.11_95)]"
       />
       <div className="container-prose relative">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
