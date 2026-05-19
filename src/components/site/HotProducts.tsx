@@ -2,21 +2,36 @@ import { Flame } from "lucide-react";
 import { products } from "@/data/products";
 import { ProductCard } from "@/components/site/ProductCard";
 
-const HOT_BADGES = ["HOT", "BÁN CHẠY", "BAN CHAY"];
+// Chỉ các giá trị badge được cấu hình mới được coi là "bán chạy"
+const HOT_BADGES = ["HOT", "BÁN CHẠY", "BAN CHAY"] as const;
+
+function normalizeBadge(badge?: string) {
+  return (badge ?? "").trim().toUpperCase();
+}
+
+export function isHotProduct(badge?: string) {
+  const b = normalizeBadge(badge);
+  return (HOT_BADGES as readonly string[]).includes(b);
+}
 
 export function HotProducts() {
-  const hot = products.filter((p) =>
-    HOT_BADGES.some((b) => p.badge?.toUpperCase().includes(b)),
-  );
-  const rest = products.filter((p) => !hot.includes(p));
-  const list = [...hot, ...rest].slice(0, 12);
+  const hot = products.filter((p) => isHotProduct(p.badge)).slice(0, 12);
+
+  if (hot.length === 0) return null;
 
   return (
-    <section id="hot-products" className="bg-muted/30 py-20">
-      <div className="container-prose">
+    <section
+      id="hot-products"
+      className="relative py-20 bg-[oklch(0.97_0.04_25)]"
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[oklch(0.95_0.06_25)] via-transparent to-[oklch(0.97_0.04_25)]"
+      />
+      <div className="container-prose relative">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
-            <div className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-sm font-semibold uppercase tracking-[0.18em] text-primary">
               <Flame className="h-4 w-4" />
               Sản phẩm bán chạy
             </div>
@@ -27,7 +42,7 @@ export function HotProducts() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {list.map((p) => (
+          {hot.map((p) => (
             <ProductCard key={p.code} p={p} />
           ))}
         </div>

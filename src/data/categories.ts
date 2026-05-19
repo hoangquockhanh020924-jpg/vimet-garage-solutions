@@ -5,6 +5,7 @@ export type CategoryDef = {
   desc: string;
   img: string;
   count: number;
+  id?: string;
 };
 
 export const categoryList: CategoryDef[] = [

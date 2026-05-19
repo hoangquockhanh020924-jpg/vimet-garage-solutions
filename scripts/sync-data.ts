@@ -62,6 +62,7 @@ export type Product = {
   accessories: { name: string; qty: string }[];
   warranty: string[];
   reviews: { name: string; role: string; rating: number; comment: string; date: string }[];
+  id?: string;
 };
 
 export const products: Product[] = ${json(db.products)};
@@ -90,6 +91,7 @@ export type CategoryDef = {
   desc: string;
   img: string;
   count: number;
+  id?: string;
 };
 
 export const categoryList: CategoryDef[] = ${json(db.categories)};
@@ -124,6 +126,7 @@ export type NewsArticle = {
   href: string;
   tags?: string[];
   featured?: boolean;
+  id?: string;
 };
 
 export const newsArticles: NewsArticle[] = ${json(db.news)};
@@ -141,6 +144,7 @@ export type VideoItem = {
   youtubeId: string;
   thumbnail: string;
   sourceUrl: string;
+  id?: string;
 };
 
 export const videos: VideoItem[] = ${json(db.videos)};
