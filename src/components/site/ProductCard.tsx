@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ShoppingCart, Eye, Heart, Trash2, Truck, Star } from "lucide-react";
+import { ShoppingCart, Eye, Heart, Trash2, Truck, Star, Flame } from "lucide-react";
 import type { Product } from "@/data/products";
 import { useCart, parsePrice } from "@/lib/cart";
 import { useFavorites } from "@/lib/favorites";
