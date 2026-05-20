@@ -137,7 +137,8 @@ export function ProductListCard({ p }: { p: Product }) {
           className="h-full w-full object-contain object-center p-0 md:p-1 transition-transform duration-500 group-hover:scale-105"
         />
         {p.badge && (
-          <span className="absolute top-3 left-3 rounded-md bg-primary px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+          <span className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-md bg-primary px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-primary-foreground">
+            {p.badge.trim().toUpperCase() === "HOT" && <Flame className="h-3 w-3" />}
             {p.badge}
           </span>
         )}
