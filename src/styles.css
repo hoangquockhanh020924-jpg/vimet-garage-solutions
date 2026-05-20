@@ -163,6 +163,10 @@
     animation: brand-scroll-right 26s linear infinite;
   }
 
+  .brand-marquee-wrapper:hover .brand-marquee-track {
+    animation-play-state: paused;
+  }
+
   .brand-marquee-item {
     width: clamp(12rem, 14.8vw, 16rem);
     height: 7.4rem;
