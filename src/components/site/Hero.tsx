@@ -25,13 +25,67 @@ export function Hero() {
 
   return (
     <section id="top" className="relative overflow-hidden bg-white">
-      {/* Decorative stripe */}
       <div className="absolute top-0 right-0 h-2 w-1/3 diagonal-stripe opacity-80" />
-      <div className="absolute -left-32 top-40 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
 
-      <div className="container-prose relative grid gap-12 py-16 lg:grid-cols-12 lg:gap-8 lg:py-24">
-        {/* Copy */}
-        <div className="lg:col-span-6 flex flex-col justify-center">
+      {/* Full-width banner carousel — preserves true 2048×696 aspect (no cropping) */}
+      <div
+        className="relative w-full bg-neutral"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <div className="relative w-full aspect-[2048/696]">
+          {heroSlides.map((slide, i) => (
+            <img
+              key={slide.src}
+              src={slide.src}
+              alt={slide.alt}
+              loading={i === 0 ? "eager" : "lazy"}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+                i === current ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
+
+          <button
+            type="button"
+            onClick={prev}
+            aria-label="Ảnh trước"
+            className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-white/90 backdrop-blur text-secondary shadow-md transition-all hover:bg-primary hover:text-white hover:scale-110"
+          >
+            <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
+          </button>
+          <button
+            type="button"
+            onClick={next}
+            aria-label="Ảnh kế tiếp"
+            className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 md:h-12 md:w-12 items-center justify-center rounded-full bg-white/90 backdrop-blur text-secondary shadow-md transition-all hover:bg-primary hover:text-white hover:scale-110"
+          >
+            <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
+          </button>
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
+            {heroSlides.map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Chuyển đến ảnh ${i + 1}`}
+                className={`h-2 rounded-full transition-all ${
+                  i === current ? "w-8 bg-primary" : "w-2 bg-white/80 hover:bg-white"
+                }`}
+              />
+            ))}
+          </div>
+
+          <div className="absolute top-4 right-4 md:top-6 md:right-6 rounded-md bg-yellow-400 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-secondary shadow-md">
+            Chính hãng 100%
+          </div>
+        </div>
+      </div>
+
+      {/* Copy + trust block below banner */}
+      <div className="container-prose relative grid gap-10 py-12 lg:grid-cols-12 lg:gap-8 lg:py-16">
+        <div className="lg:col-span-8">
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
             <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
             Nhà phân phối chính thức từ 2008
@@ -42,7 +96,7 @@ export function Hero() {
             chuyên nghiệp, chính hãng
           </h1>
 
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
             Vimet cung cấp trọn gói cầu nâng, máy chẩn đoán, thiết bị sửa chữa và
             dụng cụ gara — tư vấn kỹ thuật, lắp đặt tận nơi và bảo hành dài hạn
             cho hơn 3.500+ xưởng dịch vụ trên toàn quốc.
@@ -64,96 +118,24 @@ export function Hero() {
               Nhận tư vấn & báo giá
             </a>
           </div>
-
-          {/* Mini trust */}
-          <div className="mt-10 grid grid-cols-3 gap-4 border-t border-border pt-6">
-            {[
-              { icon: ShieldCheck, label: "Bảo hành", value: "24 tháng" },
-              { icon: Wrench, label: "Lắp đặt", value: "Tận nơi" },
-              { icon: Truck, label: "Giao hàng", value: "Toàn quốc" },
-            ].map((f) => (
-              <div key={f.label} className="flex items-start gap-2.5">
-                <f.icon className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-                <div className="leading-tight">
-                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{f.label}</div>
-                  <div className="text-sm font-bold text-secondary">{f.value}</div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* Image carousel */}
-        <div
-          className="lg:col-span-6 relative"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          <div className="relative aspect-[5/4] overflow-hidden rounded-2xl shadow-[var(--shadow-elevated)] bg-neutral">
-            {heroSlides.map((slide, i) => (
-              <img
-                key={slide.src}
-                src={slide.src}
-                alt={slide.alt}
-                loading={i === 0 ? "eager" : "lazy"}
-                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-                  i === current ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            ))}
-            <div className="absolute inset-0 bg-gradient-to-tr from-secondary/30 via-transparent to-transparent pointer-events-none" />
-
-            {/* Prev / Next buttons */}
-            <button
-              type="button"
-              onClick={prev}
-              aria-label="Ảnh trước"
-              className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur text-secondary shadow-md transition-all hover:bg-primary hover:text-white hover:scale-110"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-            <button
-              type="button"
-              onClick={next}
-              aria-label="Ảnh kế tiếp"
-              className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 backdrop-blur text-secondary shadow-md transition-all hover:bg-primary hover:text-white hover:scale-110"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
-
-            {/* Dots */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2">
-              {heroSlides.map((_, i) => (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => goTo(i)}
-                  aria-label={`Chuyển đến ảnh ${i + 1}`}
-                  className={`h-2 rounded-full transition-all ${
-                    i === current ? "w-6 bg-primary" : "w-2 bg-white/80 hover:bg-white"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Floating stat */}
-          <div className="absolute -bottom-6 -left-4 md:left-8 rounded-xl border border-border bg-white p-4 shadow-[var(--shadow-card)] w-[220px]">
-            <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                <ShieldCheck className="h-5 w-5" />
+        <div className="lg:col-span-4 flex flex-col justify-center gap-4 lg:border-l lg:border-border lg:pl-8">
+          {[
+            { icon: ShieldCheck, label: "Bảo hành chính hãng", value: "24 tháng" },
+            { icon: Wrench, label: "Lắp đặt kỹ thuật", value: "Tận nơi" },
+            { icon: Truck, label: "Giao hàng", value: "Toàn quốc" },
+          ].map((f) => (
+            <div key={f.label} className="flex items-center gap-3 rounded-lg border border-border bg-white p-3 shadow-[var(--shadow-card)]">
+              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
+                <f.icon className="h-5 w-5" />
               </div>
-              <div>
-                <div className="font-display text-2xl font-bold text-secondary leading-none">3.500+</div>
-                <div className="text-xs text-muted-foreground mt-1">Gara tin dùng</div>
+              <div className="leading-tight">
+                <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{f.label}</div>
+                <div className="text-base font-bold text-secondary">{f.value}</div>
               </div>
             </div>
-          </div>
-
-          {/* Badge corner */}
-          <div className="absolute -top-3 right-6 rounded-md bg-yellow-400 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-secondary shadow-md">
-            Chính hãng 100%
-          </div>
+          ))}
         </div>
       </div>
     </section>
