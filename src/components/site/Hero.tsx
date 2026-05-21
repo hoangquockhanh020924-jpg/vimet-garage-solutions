@@ -151,7 +151,7 @@ export function Hero() {
           </div>
 
           {/* Badge corner */}
-          <div className="absolute -top-3 right-6 rounded-md bg-primary px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-md">
+          <div className="absolute -top-3 right-6 rounded-md bg-yellow-400 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-secondary shadow-md">
             Chính hãng 100%
           </div>
         </div>
