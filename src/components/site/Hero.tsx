@@ -1,11 +1,22 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight, PhoneCall, ShieldCheck, Wrench, Truck } from "lucide-react";
+import {
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  PhoneCall,
+  ShieldCheck,
+  Wrench,
+  Truck,
+} from "lucide-react";
 import { images } from "@/lib/images";
 
 const heroSlides = [
   { src: images.hero.slides[0], alt: "Xưởng gara ô tô với cầu nâng và thiết bị chẩn đoán Vimet" },
   { src: images.hero.slides[1], alt: "Cầu nâng 2 trụ Vimet chính hãng tại xưởng dịch vụ" },
-  { src: images.hero.slides[2], alt: "Thiết bị chẩn đoán và cầu nâng 4 trụ cho gara chuyên nghiệp" },
+  {
+    src: images.hero.slides[2],
+    alt: "Thiết bị chẩn đoán và cầu nâng 4 trụ cho gara chuyên nghiệp",
+  },
 ];
 
 export function Hero() {
@@ -33,14 +44,14 @@ export function Hero() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        <div className="relative w-full aspect-[2048/696]">
+        <div className="relative w-full aspect-[2048/696] bg-neutral-100">
           {heroSlides.map((slide, i) => (
             <img
               key={slide.src}
               src={slide.src}
               alt={slide.alt}
               loading={i === 0 ? "eager" : "lazy"}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+              className={`absolute inset-0 h-full w-full object-contain object-center transition-opacity duration-700 ${
                 i === current ? "opacity-100" : "opacity-0"
               }`}
             />
@@ -92,14 +103,14 @@ export function Hero() {
           </div>
 
           <h1 className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight text-secondary md:text-5xl lg:text-6xl">
-            Giải pháp thiết bị <span className="text-primary">gara ô tô</span>{" "}
-            chuyên nghiệp, chính hãng
+            Giải pháp thiết bị <span className="text-primary">gara ô tô</span> chuyên nghiệp, chính
+            hãng
           </h1>
 
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Vimet cung cấp trọn gói cầu nâng, máy chẩn đoán, thiết bị sửa chữa và
-            dụng cụ gara — tư vấn kỹ thuật, lắp đặt tận nơi và bảo hành dài hạn
-            cho hơn 3.500+ xưởng dịch vụ trên toàn quốc.
+            Vimet cung cấp trọn gói cầu nâng, máy chẩn đoán, thiết bị sửa chữa và dụng cụ gara — tư
+            vấn kỹ thuật, lắp đặt tận nơi và bảo hành dài hạn cho hơn 3.500+ xưởng dịch vụ trên toàn
+            quốc.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -126,12 +137,17 @@ export function Hero() {
             { icon: Wrench, label: "Lắp đặt kỹ thuật", value: "Tận nơi" },
             { icon: Truck, label: "Giao hàng", value: "Toàn quốc" },
           ].map((f) => (
-            <div key={f.label} className="flex items-center gap-3 rounded-lg border border-border bg-white p-3 shadow-[var(--shadow-card)]">
+            <div
+              key={f.label}
+              className="flex items-center gap-3 rounded-lg border border-border bg-white p-3 shadow-[var(--shadow-card)]"
+            >
               <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary shrink-0">
                 <f.icon className="h-5 w-5" />
               </div>
               <div className="leading-tight">
-                <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{f.label}</div>
+                <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
+                  {f.label}
+                </div>
                 <div className="text-base font-bold text-secondary">{f.value}</div>
               </div>
             </div>

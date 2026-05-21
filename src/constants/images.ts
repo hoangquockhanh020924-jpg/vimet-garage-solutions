@@ -1,8 +1,6 @@
 import logoVimet from "@/assets/images/brand/logo-vimet.png";
 import catalogBackground from "@/assets/images/brand/backgroundcatalog.jpeg";
-const heroGarage = "/images/banners/hero-garage.jpg";
-const heroGarage2 = "/images/banners/hero-garage-2.jpg";
-const heroGarage3 = "/images/banners/hero-garage-3.jpg";
+import { BANNER_FILES } from "./banner-manifest";
 
 export const SITE_IMAGES = {
   brand: {
@@ -10,7 +8,7 @@ export const SITE_IMAGES = {
     catalogBackground,
   },
   hero: {
-    garage: heroGarage,
-    slides: [heroGarage, heroGarage2, heroGarage3],
+    garage: BANNER_FILES[0] ?? "/images/banners/hero-garage.jpg",
+    slides: BANNER_FILES,
   },
 } as const;
