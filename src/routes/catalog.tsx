@@ -3,8 +3,8 @@ import { Download, FileText, Eye, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { SITE_IMAGES } from "@/constants/images";
 import { categoryList } from "@/data/categories";
-import catalogHeroBg from "@/assets/images/brand/backgroundcatalog.jpeg";
 
 export const Route = createFileRoute("/catalog")({
   head: () => ({
@@ -146,7 +146,7 @@ function CatalogPage() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: `url(${catalogHeroBg})`,
+              backgroundImage: `url(${SITE_IMAGES.brand.catalogBackground})`,
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-secondary/85 via-secondary/70 to-secondary/40" />
