@@ -8,7 +8,6 @@ export const BANNER_FILES = [
   "/images/banners/hero-garage.jpg",
   "/images/banners/MAY-NEN-KHI-2048x696.jpg",
   "/images/banners/may-rua-xe-hoi-nuoc-nong-2048x696 (1).jpg",
-  "/images/banners/may-rua-xe-hoi-nuoc-nong-2048x696.jpg",
   "/images/banners/PHONG-SON-O-TO-2048x696.jpg",
   "/images/banners/THIET-BI-HUNG-NHOT-2048x696.jpg",
 ] as const;

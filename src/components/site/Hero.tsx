@@ -10,14 +10,10 @@ import {
 } from "lucide-react";
 import { images } from "@/lib/images";
 
-const heroSlides = [
-  { src: images.hero.slides[0], alt: "Xưởng gara ô tô với cầu nâng và thiết bị chẩn đoán Vimet" },
-  { src: images.hero.slides[1], alt: "Cầu nâng 2 trụ Vimet chính hãng tại xưởng dịch vụ" },
-  {
-    src: images.hero.slides[2],
-    alt: "Thiết bị chẩn đoán và cầu nâng 4 trụ cho gara chuyên nghiệp",
-  },
-];
+const heroSlides = images.hero.slides.map((src, index) => ({
+  src,
+  alt: `Banner Vimet ${index + 1}`,
+}));
 
 export function Hero() {
   const [current, setCurrent] = useState(0);
